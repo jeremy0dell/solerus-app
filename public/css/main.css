@@ -5,15 +5,18 @@ body {
     height: 100%;
 }
 
-.container {
-    width: 100%;
-    /* Set a specific height */
-    height: 50%;
-    /* Position and center the image to scale nicely on all screens */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+#container {
+  overflow: auto;
+  background-image: url("/static/images/iphonex-clay-mockup.png");
+  /* background-color: blue; */
+  width: 100%;
+  /* Set a specific height */
+  height: 600px;
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* position: relative; */
 }
 
 img {
@@ -38,15 +41,22 @@ font-family: "Inter UI Bold";
 src: url("InterUI/Inter-UI-Medium.woff") format("woff");
 }
 
+.imgContainer {
+  height: 255px;
+  width: 252px;
+}
+
 #heroText {
-	font-family: Inter UI; 
+	font-family: Inter UI;
 	font-size: 42px;
 	z-index: 100;
-  position: absolute;
+  /* position: relative; */
   color: white;
   font-weight: bold;
-  left: 9.5%;
-  top: 25%; }
+  /* left: 25%;
+  top: 0%; */
+  width: 500px;
+}
 
 #how {
 	position: absolute;
@@ -75,15 +85,23 @@ src: url("InterUI/Inter-UI-Medium.woff") format("woff");
  	width: auto;
 }
 
-#bodyText {
+.bodyText {
+  display: flex;
+  justify-content: space-between;
+	padding: 25px 5%;
+}
 
-	padding-left: 9.5%;
-	padding-top: 6%;
+.bodyTextRight {
+  display: flex;
+  justify-content: space-between;
+	padding: 25px 5%;
+  text-align: right;
 }
 
 .paraTitle {
 	font-family: Inter UI Bold;
 	font-size: x-large;
+  line-height: 43px;
 }
 
 #header {
