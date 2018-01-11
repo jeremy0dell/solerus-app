@@ -3,6 +3,8 @@
 import mongoose from 'mongoose'
 
 import Message from './model/message'
+// eslint-disable-next-line no-unused-vars
+import User from './model/user'
 
 export const homePage = () => null
 
@@ -13,7 +15,7 @@ export const helloPage = () =>
       content: 'Server-side preloaded message from the DB',
     })
 
-    mongoose.connection.db.collection('messages').drop()
+    mongoose.connection.db.collection('message').drop()
     .then(
       /* eslint-disable no-console */
       () => console.log('Message collection dropped'),

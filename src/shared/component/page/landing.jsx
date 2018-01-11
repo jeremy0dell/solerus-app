@@ -69,7 +69,7 @@ const LandingPage = () =>
 
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <img style={{ height: '50%', width: '50%' }} src="/static/images/waiting-list.png" alt="" />
+        <img style={{ height: '60%', width: '50%' }} src="/static/images/waiting-list.png" alt="" />
         <p style={styles.launchText}>Expected to launch mid-2018</p>
       </div>
     </div>
