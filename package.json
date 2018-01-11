@@ -8,8 +8,8 @@
     "> 1%"
   ],
   "engines": {
-    "node": "7.x",
-    "yarn": "0.21.3"
+    "node": "8.x",
+    "yarn": "1.x"
   },
   "scripts": {
     "start": "yarn dev:start",
