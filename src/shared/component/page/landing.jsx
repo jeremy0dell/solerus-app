@@ -48,10 +48,10 @@ const LandingPage = () =>
 
       <div style={{ width: 550 }}>
         <h2 className="paraTitle" id="headerTwo"> Another line of defense against theft and loss. </h2>
-        <p className="text"> Just like your car or property title, a Solerus token proves that you and only you own the asset. In the case of theft or loss, you still retain the Solerus token. Your item can be reported missing on the blockchain, preventing others from reselling or purchasingyour item. </p>
+        <p className="text"> Just like your car or property title, a Solerus token proves that you and only you own the asset. In the case of theft or loss, you still retain the Solerus token. Your item can be reported missing on the blockchain, preventing others from reselling or purchasing your item. </p>
       </div>
 
-      <img className="imgContainer" id="imgRight" src="/static/images/shield.png" alt="" />
+      <img className="imgContainer" id="shield" src="/static/images/shield.png" alt="" />
 
     </div>
 

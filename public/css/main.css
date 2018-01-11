@@ -50,6 +50,10 @@ src: url("InterUI/Inter-UI-Medium.woff") format("woff");
   margin-right: 20%;
 }
 
+#shield {
+  margin-right: 20%;
+}
+
 #imgLeft {
   margin-left: 20%;
 }
