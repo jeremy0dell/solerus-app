@@ -24,7 +24,7 @@ const entry = {
   border: '1px solid #000000',
   boxSizing: 'border-box',
   fontSize: '15px',
-  fontFamily: 'InterUI',
+  fontFamily: 'Inter UI',
 }
 
 const submitButton = {
