@@ -8,6 +8,13 @@ import User from './model/user'
 
 export const homePage = () => null
 
+export const loginPage = () => ({
+  login: {
+    email: '',
+    password: '',
+  },
+})
+
 export const helloPage = () =>
   new Promise((resolve, reject) => {
     const helloMessage = new Message({

@@ -1,8 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { withRouter } from 'react-router'
 
 import styles from '../styles/LandingStyles'
 
-const LandingPage = () =>
+const LandingPage = ({ history }) =>
   <div>
     <div id="container">
       {/* <img src="/static/images/iphonex-clay-mockup.png" alt="iPhone X" /> */}
@@ -13,8 +15,18 @@ const LandingPage = () =>
       </div>
       {/* <button className="btn" id="how">How it works ↓</button> */}
       <div style={styles.authButtons}>
-        <img style={styles.authButton} src="/static/images/login.png" alt="" />
-        <img style={styles.authButton} src="/static/images/signup.png" alt="" />
+        <img //eslint-disable-line
+          onClick={() => history.push('/login')}
+          style={styles.authButton}
+          src="/static/images/login.png"
+          role="button"
+        />
+        <img //eslint-disable-line
+          onClick={() => history.push('/signup')}
+          style={styles.authButton}
+          src="/static/images/signup.png"
+          role="button"
+        />
       </div>
     </div>
 
@@ -76,4 +88,8 @@ const LandingPage = () =>
     </div>
   </div>
 
-export default LandingPage
+LandingPage.propTypes = {
+  history: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+}
+
+export default withRouter(LandingPage)

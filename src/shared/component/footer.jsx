@@ -3,7 +3,7 @@ import React from 'react'
 import styles from './styles/FooterStyles'
 
 const Footer = () =>
-  <div className="container mt-5">
+  <div>
     <hr />
     <footer style={styles.container}>
       <div style={{ display: 'flex' }}>

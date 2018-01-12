@@ -7,7 +7,4 @@ const userSchema = Schema({
   ownership: [Schema.Types.ObjectId],
 })
 
-/* eslint-disable no-console */
-console.log('qwerasdfzxcv')
-
 export default mongoose.model('user', userSchema)
