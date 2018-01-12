@@ -29,6 +29,10 @@ passport.use(new LocalStrategy(
         console.log('got !bcrypt.compareSync(user.password , password)') // eslint-disable-line
         return done(null, false)
       }
+      if (!user.isVerified) {
+        console.log('got !user.isVerified') // eslint-disable-line
+        return done(null, false)
+      }
       return done(null, user)
     })
   },
@@ -44,7 +48,8 @@ passport.deserializeUser((user, done) => {
 
 const router = express.Router()
 
-router.get('/hello', (req, res) => {
+router.get('/hello/:token', (req, res) => {
+  console.log(req.params, req.query, req.body)
   if (req.user) {
     // logged in
     res.send(`logged in and user is ${req.user}`)

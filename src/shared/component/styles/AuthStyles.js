@@ -24,7 +24,7 @@ const entry = {
   border: '1px solid #000000',
   boxSizing: 'border-box',
   fontSize: '15px',
-  fontFamily: 'InterUI',
+  fontFamily: 'Inter UI',
 }
 
 const submitButton = {
@@ -33,7 +33,6 @@ const submitButton = {
   marginBottom: '20px',
   width: '50%',
   height: '80px',
-  // backgroundImage: url("/SolerusFiles/signupBlue.png"); /* Change url to actual path */
   backgroundSize: 'cover',
   border: 'none',
   fontSize: '0px',

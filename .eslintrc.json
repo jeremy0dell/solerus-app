@@ -16,6 +16,7 @@
   },
   "rules": {
     "semi": [2, "never"],
+    "no-underscore-dangle": [1, { "allow": ["_id", "_userId"] }],
     "no-console": 0,
     "no-unexpected-multiline": 2,
     "compat/compat": 2

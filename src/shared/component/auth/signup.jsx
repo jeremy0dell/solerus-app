@@ -13,14 +13,15 @@ class SignUp extends Component {
       email: '',
       password: '',
       passwordVerify: '',
+      passwordsMatch: '',
     }
 
     this.onSignUpInputChange = this.onSignUpInputChange.bind(this)
     this.onFormSubmit = this.onFormSubmit.bind(this)
   }
 
-  onSignUpInputChange(e, v) {
-    console.log(e.target.value, e.target.name, v, this)
+  onSignUpInputChange(e) {
+    console.log(this.state.password, this.state.passwordVerify)
     this.setState({
       [e.target.name]: e.target.value,
     })
@@ -28,10 +29,12 @@ class SignUp extends Component {
 
   onFormSubmit(e) {
     e.preventDefault()
-    const { firstname, lastname, email, password } = this.state
-    const newUser = { full_name: `${firstname} ${lastname}`, email, password }
-    axios.post('http://localhost:8000/api/users', newUser)
-    .then(console.log)
+    const { firstname, lastname, email, password, passwordVerify } = this.state
+    if (password === passwordVerify && password.length > 4) {
+      const newUser = { full_name: `${firstname} ${lastname}`, email, password }
+      axios.post('http://localhost:8000/api/users', newUser)
+      .then(console.log)
+    }
   }
 
   render() {
@@ -47,11 +50,14 @@ class SignUp extends Component {
             <input style={styles.entry} type="text" name="lastname" onChange={this.onSignUpInputChange} placeholder="Last name" value={lastname} />
             <input style={styles.entry} type="text" name="email" onChange={this.onSignUpInputChange} placeholder="Email" value={email} />
             <input style={styles.entry} type="password" name="password" onChange={this.onSignUpInputChange} placeholder="Password" value={password} />
-            <input style={styles.entry} type="password" name="passwordVerify" onChange={this.onSignUpInputChange} placeholder="Password Verify" value={passwordVerify} />
+            {password.length > 0 && password !== passwordVerify && <p style={{ color: 'red', marginBottom: 0, paddingBottom: 0 }}>Passwords should be matching</p>}
+            <div style={{ display: 'flex' }}>
+              <input style={styles.entry} type="password" name="passwordVerify" onChange={this.onSignUpInputChange} placeholder="Password Verify" value={passwordVerify} />
+              {password.length > 0 && password === passwordVerify && <p style={{ fontSize: '28px', marginLeft: '5%', marginTop: '5%', color: 'green' }}>✓</p>}
+            </div>
             <button
               style={Object.assign(styles.submitButton, styles.withSignUp)}
               onClick={this.onFormSubmit}
-              // style={{ ...(styles.submitButton), ...(styles.withLogin) }}
             />
           </form>
         </div>

@@ -10,6 +10,9 @@ export const USERS_CREATE = '/users'
 export const USERS_UPDATE = '/users/:id'
 export const USERS_DELETE = '/users/:id'
 
+export const USERS_CONFIRMATION = '/confirmation/:token'
+export const TOKEN_RESEND = '/resend'
+
 export const HOME_PAGE_ROUTE = '/'
 export const LOGIN_PAGE_ROUTE = '/login'
 export const SIGNUP_PAGE_ROUTE = '/signup'

@@ -17,4 +17,6 @@ export const IO_CLIENT_HELLO = 'IO_CLIENT_HELLO'
 export const IO_CLIENT_JOIN_ROOM = 'IO_CLIENT_JOIN_ROOM'
 export const IO_SERVER_HELLO = 'IO_SERVER_HELLO'
 
+export const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY
+
 export const isProd = process.env.NODE_ENV === 'production'
