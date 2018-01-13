@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+
 // import { connect } from 'react-redux'
 // import PropTypes from 'prop-types'
 
@@ -41,8 +42,8 @@ class Login extends Component {
 
     return (
       <div style={{ backgroundColor: '#D3E9F0', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <div style={{ width: 400, backgroundColor: 'white' }}>
-          <img src="/static/images/header-logo.png" alt="Solerus logo" />
+        <div style={styles.boxShadow}>
+          <img style={styles.logo} src="/static/images/header-logo.png" alt="Solerus logo" />
 
           <form style={{ display: 'flex', flexDirection: 'column' }}>
             <input style={styles.entry} type="text" onChange={this.onLoginInputChange} name="email" placeholder="Email" value={email} />

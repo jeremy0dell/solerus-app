@@ -39,6 +39,12 @@ const submitButton = {
   lineHeight: '0',
 }
 
+const boxShadow = {
+  width: '400px',
+  backgroundColor: 'white',
+  boxShadow: '0 2px 4px rgba(0,0,0,.15)',
+}
+
 const withSignUp = {
   backgroundImage: 'url("/static/images/signup-blue.png")',
 }
@@ -47,4 +53,4 @@ const withLogin = {
   backgroundImage: 'url("/static/images/login-blue.png")',
 }
 
-export default { rectangle, logo, entry, submitButton, withSignUp, withLogin }
+export default { rectangle, logo, entry, submitButton, withSignUp, withLogin, boxShadow }

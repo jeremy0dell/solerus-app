@@ -42,8 +42,8 @@ class SignUp extends Component {
 
     return (
       <div style={{ backgroundColor: '#D3E9F0', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <div style={{ width: 400, backgroundColor: 'white' }}>
-          <img src="/static/images/header-logo.png" alt="Solerus logo" />
+        <div style={styles.boxShadow}>
+          <img style={styles.logo} src="/static/images/header-logo.png" alt="Solerus logo" />
 
           <form style={{ display: 'flex', flexDirection: 'column' }}>
             <input style={styles.entry} type="text" name="firstname" onChange={this.onSignUpInputChange} placeholder="First name" value={firstname} />

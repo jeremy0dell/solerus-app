@@ -4,6 +4,9 @@ import { withRouter } from 'react-router'
 
 import styles from '../styles/LandingStyles'
 
+// <img src="/static/images/how.png" alt="" />
+
+
 const LandingPage = ({ history }) =>
   <div>
     <div id="container">
@@ -11,7 +14,6 @@ const LandingPage = ({ history }) =>
       <div style={{ margin: '120px 0px 0px 100px' }}>
         <img id="headerLogo" src="/static/images/headerLogo.png" alt="" />
         <p id="heroText">Digital certificates of authenticity for your expensive assets</p>
-        <img src="/static/images/how.png" alt="" />
       </div>
       {/* <button className="btn" id="how">How it works ↓</button> */}
       <div style={styles.authButtons}>
