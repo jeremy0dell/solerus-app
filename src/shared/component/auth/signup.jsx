@@ -50,7 +50,7 @@ class SignUp extends Component {
             <input style={styles.entry} type="text" name="lastname" onChange={this.onSignUpInputChange} placeholder="Last name" value={lastname} />
             <input style={styles.entry} type="text" name="email" onChange={this.onSignUpInputChange} placeholder="Email" value={email} />
             <input style={styles.entry} type="password" name="password" onChange={this.onSignUpInputChange} placeholder="Password" value={password} />
-            {password.length > 0 && password !== passwordVerify && <p style={{ color: 'red', marginBottom: 0, paddingBottom: 0, marginLeft: '28%' }}>Passwords must match</p>}
+            {password.length > 0 && passwordVerify.length > 0 && password !== passwordVerify && <p style={{ color: 'red', marginBottom: 0, paddingBottom: 0, marginLeft: '28%' }}>Passwords must match</p>}
             <div style={{ display: 'flex' }}>
               <input style={styles.entry} type="password" name="passwordVerify" onChange={this.onSignUpInputChange} placeholder="Password Verify" value={passwordVerify} />
               {password.length > 0 && password === passwordVerify && <p style={{ fontSize: '28px', marginLeft: '5%', marginTop: '5%', color: 'green' }}>✓</p>}
