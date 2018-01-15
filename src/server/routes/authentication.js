@@ -18,7 +18,7 @@ passport.use(new LocalStrategy(
   { usernameField: 'email' }, // we are using email as our username
   (email, password, done) => {
     const emailSan = validator.normalizeEmail(email)
-    User.findOne({ 'email': emailSan }, (err, user) => {
+    User.findOne({ 'email': emailSan }, (err, user) => { // eslint-disable-line
       if (err) {
         console.log('got err') // eslint-disable-line
         return done(err)

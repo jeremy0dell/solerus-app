@@ -135,7 +135,8 @@ const router = express.Router()
 router.post(USERS_CREATE, (req, res, next) => {
   const { full_name, email, password } = req.body
 
-  const user = new User({ full_name, email: validator.normalizeEmail(email), password: bcrypt.hashSync(password, 10) })
+  const user = new User({
+    full_name, email: validator.normalizeEmail(email), password: bcrypt.hashSync(password, 10) })
 
   user
     .save()
