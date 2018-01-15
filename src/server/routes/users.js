@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt'
 import crypto from 'crypto'
 import nodemailer from 'nodemailer'
 import sgTransport from 'nodemailer-sendgrid-transport'
+import validator from 'validator'
 
 import User from '../model/user'
 import Token from '../model/token'
@@ -134,7 +135,7 @@ const router = express.Router()
 router.post(USERS_CREATE, (req, res, next) => {
   const { full_name, email, password } = req.body
 
-  const user = new User({ full_name, email, password: bcrypt.hashSync(password, 10) })
+  const user = new User({ full_name, email: validator.normalizeEmail(email), password: bcrypt.hashSync(password, 10) })
 
   user
     .save()

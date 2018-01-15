@@ -2,6 +2,7 @@ import express from 'express'
 import passport from 'passport'
 import passportLocal from 'passport-local'
 import bcrypt from 'bcrypt'
+import validator from 'validator'
 
 import User from '../model/user'
 
@@ -16,7 +17,8 @@ const LocalStrategy = passportLocal.Strategy
 passport.use(new LocalStrategy(
   { usernameField: 'email' }, // we are using email as our username
   (email, password, done) => {
-    User.findOne({ email }, (err, user) => {
+    const emailSan = validator.normalizeEmail(email)
+    User.findOne({ 'email': emailSan }, (err, user) => {
       if (err) {
         console.log('got err') // eslint-disable-line
         return done(err)

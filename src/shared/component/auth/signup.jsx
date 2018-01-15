@@ -27,13 +27,20 @@ class SignUp extends Component {
     })
   }
 
+  validateEmail(e) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(e);
+  }
+
   onFormSubmit(e) {
     e.preventDefault()
     const { firstname, lastname, email, password, passwordVerify } = this.state
     if (password === passwordVerify && password.length > 4) {
-      const newUser = { full_name: `${firstname} ${lastname}`, email, password }
-      axios.post('http://localhost:8000/api/users', newUser)
-      .then(console.log)
+      if (this.validateEmail(email)){
+        const newUser = { full_name: `${firstname} ${lastname}`, email, password }
+        axios.post('http://localhost:8000/api/users', newUser)
+        .then(console.log)
+      }
     }
   }
 
