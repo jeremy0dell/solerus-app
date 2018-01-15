@@ -4,8 +4,10 @@ import assign from 'lodash/assign'
 import User from '../model/user'
 import Token from '../model/token'
 
-import { USERS_CONFIRMATION } from '../../shared/routes'
-import { LOGIN_PAGE_ROUTE } from '../../shared/routes'
+import {
+  USERS_CONFIRMATION,
+  LOGIN_PAGE_ROUTE,
+} from '../../shared/routes'
 
 const router = express.Router()
 
@@ -24,7 +26,6 @@ router.get(USERS_CONFIRMATION, (req, res, next) => {
       return user.save()
     })
     .then(res.redirect(301, LOGIN_PAGE_ROUTE))
-    //.then(res.status(200).send('The account has been verified. Please log in.'))
     .catch(next)
 })
 
