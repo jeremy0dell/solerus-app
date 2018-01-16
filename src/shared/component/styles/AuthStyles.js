@@ -42,7 +42,37 @@ const submitButton = {
 const boxShadow = {
   width: '400px',
   backgroundColor: 'white',
-  boxShadow: '0 2px 4px rgba(0,0,0,.15)',
+  boxShadow: '0 2px 8px rgba(0,0,0,.50)',
+}
+
+const bannerVerified = {
+  width: '400px',
+  height: '30px',
+  backgroundColor: '#80FF72',
+  boxShadow: '0 2px 8px rgba(0,0,0,.50)',
+  display: 'flex',
+  flexDirection: 'column',
+  marginBottom: '10px',
+  fontSize: '15px',
+  fontFamily: 'Inter UI',
+  color: 'black',
+  textAlign: 'center',
+  lineHeight: '30px',
+}
+
+const bannerError = {
+  width: '400px',
+  height: '30px',
+  backgroundColor: '#D81159',
+  boxShadow: '0 2px 8px rgba(0,0,0,.50)',
+  display: 'flex',
+  flexDirection: 'column',
+  marginBottom: '10px',
+  fontSize: '15px',
+  fontFamily: 'Inter UI',
+  color: 'white',
+  textAlign: 'center',
+  lineHeight: '30px',
 }
 
 const withSignUp = {
@@ -53,4 +83,14 @@ const withLogin = {
   backgroundImage: 'url("/static/images/login-blue.png")',
 }
 
-export default { rectangle, logo, entry, submitButton, withSignUp, withLogin, boxShadow }
+export default {
+  rectangle,
+  logo,
+  entry,
+  submitButton,
+  withSignUp,
+  withLogin,
+  boxShadow,
+  bannerVerified,
+  bannerError,
+}
