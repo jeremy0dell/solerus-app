@@ -14,6 +14,9 @@ class SignUp extends Component {
       password: '',
       passwordVerify: '',
       passwordsMatch: '',
+      passLength: true,
+      passMatch: true,
+      emailValid: true,
     }
 
     this.onSignUpInputChange = this.onSignUpInputChange.bind(this)
@@ -30,12 +33,23 @@ class SignUp extends Component {
   onFormSubmit(e) {
     e.preventDefault()
     const { firstname, lastname, email, password, passwordVerify } = this.state
-    if (password === passwordVerify && password.length > 4) {
-      if (this.validateEmail(email)) {
-        const newUser = { full_name: `${firstname} ${lastname}`, email, password }
-        axios.post('http://localhost:8000/api/users', newUser)
-        .then(console.log)
+    if (password.length > 4) {
+      this.setState({ passLength: true })
+      if (password === passwordVerify) {
+        this.setState({ passMatch: true })
+        if (this.validateEmail(email)) {
+          this.setState({ emailValid: true })
+          const newUser = { full_name: `${firstname} ${lastname}`, email, password }
+          axios.post('http://localhost:8000/api/users', newUser)
+          .then(console.log)
+        } else {
+          this.setState({ emailValid: false })
+        }
+      } else {
+        this.setState({ passMatch: false })
       }
+    } else {
+      this.setState({ passLength: false })
     }
   }
 
@@ -45,10 +59,34 @@ class SignUp extends Component {
   }
 
   render() {
-    const { firstname, lastname, email, password, passwordVerify } = this.state
+    const {
+      firstname,
+      lastname,
+      email,
+      password,
+      passwordVerify,
+      passLength,
+      passMatch,
+      emailValid,
+    } = this.state
+
+    let banner = null
+
+    if (!passLength) {
+      banner = <div style={styles.bannerError}>Password must be at least 5 characters</div>
+    }
+
+    if (!passMatch) {
+      banner = <div style={styles.bannerError}>Passwords must match</div>
+    }
+
+    if (!emailValid) {
+      banner = <div style={styles.bannerError}>Please use a valid email</div>
+    }
 
     return (
-      <div style={{ backgroundColor: '#D3E9F0', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div style={{ backgroundColor: '#7DD0FF', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+        {banner}
         <div style={styles.boxShadow}>
           <img style={styles.logo} src="/static/images/header-logo.png" alt="Solerus logo" />
 
@@ -57,10 +95,8 @@ class SignUp extends Component {
             <input style={styles.entry} type="text" name="lastname" onChange={this.onSignUpInputChange} placeholder="Last name" value={lastname} />
             <input style={styles.entry} type="text" name="email" onChange={this.onSignUpInputChange} placeholder="Email" value={email} />
             <input style={styles.entry} type="password" name="password" onChange={this.onSignUpInputChange} placeholder="Password" value={password} />
-            {password.length > 0 && passwordVerify.length > 0 && password !== passwordVerify && <p style={{ color: 'red', marginBottom: 0, paddingBottom: 0, marginLeft: '28%' }}>Passwords must match</p>}
             <div style={{ display: 'flex' }}>
               <input style={styles.entry} type="password" name="passwordVerify" onChange={this.onSignUpInputChange} placeholder="Password Verify" value={passwordVerify} />
-              {password.length > 0 && password === passwordVerify && <p style={{ fontSize: '28px', marginLeft: '5%', marginTop: '5%', color: 'green' }}>✓</p>}
             </div>
             <button
               style={Object.assign(styles.submitButton, styles.withSignUp)}

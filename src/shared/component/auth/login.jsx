@@ -15,10 +15,19 @@ class Login extends Component {
     this.state = {
       email: '',
       password: '',
+      verify: false,
     }
 
     this.onLoginInputChange = this.onLoginInputChange.bind(this)
     this.onFormSubmit = this.onFormSubmit.bind(this)
+  }
+
+  componentWillMount() {
+    const search = this.props.location.search
+
+    if (search === '?verify=1') {
+      this.setState({ verify: true })
+    }
   }
 
   onLoginInputChange(e, v) {
@@ -43,13 +52,21 @@ class Login extends Component {
   }
 
   render() {
-    const { email, password } = this.state
+    const { email, password, verify } = this.state
+
+    let banner = null
+
+    if (verify) {
+      banner = (<div style={styles.bannerVerified}>
+        Email confirmed. Sign in to access your account.
+        </div>)
+    }
 
     return (
-      <div style={{ backgroundColor: '#D3E9F0', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div style={{ backgroundColor: '#7DD0FF', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+        {banner}
         <div style={styles.boxShadow}>
           <img style={styles.logo} src="/static/images/header-logo.png" alt="Solerus logo" />
-
           <form style={{ display: 'flex', flexDirection: 'column' }}>
             <input style={styles.entry} type="text" onChange={this.onLoginInputChange} name="email" placeholder="Email" value={email} />
             <input style={styles.entry} type="password" onChange={this.onLoginInputChange} name="password" placeholder="Password" value={password} />
