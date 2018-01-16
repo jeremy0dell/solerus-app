@@ -6,7 +6,7 @@ const itemSchema = Schema({
   serial: { type: String, required: true },
 
   // refers to the ObjectId of a product stored in Product db
-  product: { type: Schema.Types.ObjectId, required: true },
+  product: { type: Schema.Types.ObjectId, required: true, ref: 'Product' },
 
   // unique ID from the blockchain
   cora_id: { type: Number, required: true, index: { unique: true } },

@@ -21,7 +21,8 @@
     "test": "yarn lint && flow && jest --coverage",
     "heroku-postbuild": "yarn prod:build",
     "precommit": "yarn test",
-    "prepush": "yarn test && yarn prod:build"
+    "prepush": "yarn test && yarn prod:build",
+    "seed-database": "babel-node seed.js"
   },
   "dependencies": {
     "axios": "^0.17.1",
