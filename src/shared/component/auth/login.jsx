@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 
-// import { connect } from 'react-redux'
-// import PropTypes from 'prop-types'
-
-// import { changeLoginInputValue } from '../../action/login'
+import { addUserToState } from '../../action/authentication'
 
 import styles from '../styles/AuthStyles'
 
@@ -30,11 +29,17 @@ class Login extends Component {
   }
 
   onFormSubmit(e) {
+    const { addUserToState, history } = this.props
+
     e.preventDefault()
     const { email, password } = this.state
     const loginInfo = { email, password }
     axios.post('http://localhost:8000/auth/auth', loginInfo)
-    .then(console.log)
+    .then((res) => {
+      console.log('res.data is', res.data, 'adduser is', addUserToState)
+      addUserToState(res.data)
+    })
+    .then(history.push('/dashboard'))
   }
 
   render() {
@@ -51,7 +56,6 @@ class Login extends Component {
             <button
               onClick={this.onFormSubmit}
               style={Object.assign(styles.submitButton, styles.withLogin)}
-              // style={{ ...(styles.submitButton), ...(styles.withLogin) }}
             />
           </form>
         </div>
@@ -60,25 +64,4 @@ class Login extends Component {
   }
 }
 
-// const mapStateToProps = (state) => {
-//   // ...state.login,
-//   console.log('state be', state, 'state.login be', state.login)
-//   return {
-//     email: state.login.email,
-//     password: state.login.password,
-//   }
-// }
-//
-// const mapDispatchToProps = dispatch => ({
-//   onLoginInputChange: event =>
-//     dispatch(changeLoginInputValue(event.target.name, event.target.value)),
-// })
-
-// Login.propTypes = {
-//   email: PropTypes.string.isRequired,
-//   password: PropTypes.string.isRequired,
-//   onLoginInputChange: PropTypes.func.isRequired,
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Login)
-export default Login
+export default withRouter(connect(null, { addUserToState })(Login))

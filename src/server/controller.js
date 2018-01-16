@@ -1,19 +1,23 @@
-// @flow
-
 import mongoose from 'mongoose'
+import omit from 'lodash/omit'
 
 import Message from './model/message'
 // eslint-disable-next-line no-unused-vars
 import User from './model/user'
 
-export const homePage = () => null
+export const populateUser = (user) => {
+  if (user) {
+    return {
+      authentication: {
+        isLoggedIn: true,
+        user: omit(user, 'password'),
+      },
+    }
+  }
+  return null
+}
 
-export const loginPage = () => ({
-  login: {
-    email: '',
-    password: '',
-  },
-})
+export const homePage = () => null
 
 export const helloPage = () =>
   new Promise((resolve, reject) => {
@@ -43,6 +47,6 @@ export const helloAsyncPage = () => ({
   hello: { messageAsync: 'Server-side preloaded message for async page' },
 })
 
-export const helloEndpoint = (num: number) => ({
-  serverMessage: `Hello from the server! (received ${num})`,
-})
+// export const helloEndpoint = (num: number) => ({
+//   serverMessage: `Hello from the server! (received ${num})`,
+// })

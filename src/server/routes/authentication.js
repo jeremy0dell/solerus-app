@@ -3,6 +3,7 @@ import passport from 'passport'
 import passportLocal from 'passport-local'
 import bcrypt from 'bcrypt'
 import validator from 'validator'
+import omit from 'lodash/omit'
 
 import User from '../model/user'
 
@@ -64,8 +65,9 @@ router.get('/hello/:token', (req, res) => {
 router.post(AUTH_USER,
   passport.authenticate('local', { failureRedirect: '/login' }),
   (req, res) => {
-    console.log('body is', req.body, req.user) // eslint-disable-line
-    res.send(`user ${req.user.full_name} is signed in!`)
+    const { user } = req
+    console.log('body is', user, omit(user.toObject(), 'password'), omit({ a: 12, b: 13 }, 'b'))
+    res.json(omit(user.toObject(), 'password'))
   },
 )
 

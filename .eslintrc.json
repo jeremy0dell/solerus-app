@@ -19,6 +19,8 @@
     "no-underscore-dangle": [1, { "allow": ["_id", "_userId"] }],
     "no-console": 0,
     "no-unexpected-multiline": 2,
-    "compat/compat": 2
+    "compat/compat": 2,
+    "react/prop-types": [0],
+    "no-shadow": "off"
   }
 }

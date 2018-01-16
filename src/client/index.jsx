@@ -2,7 +2,6 @@
 
 import 'babel-polyfill'
 
-import Immutable from 'immutable'
 import $ from 'jquery'
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -15,7 +14,7 @@ import Tether from 'tether'
 
 import App from '../shared/app'
 import { APP_CONTAINER_SELECTOR, JSS_SSR_SELECTOR, isProd } from '../shared/config'
-import helloReducer from '../shared/reducer/hello'
+import authenticationReducer from '../shared/reducer/authentication'
 import setUpSocket from './socket'
 
 window.jQuery = $
@@ -28,8 +27,8 @@ const preloadedState = window.__PRELOADED_STATE__
 /* eslint-enable no-underscore-dangle */
 
 const store = createStore(combineReducers(
-  { hello: helloReducer }),
-  { hello: Immutable.fromJS(preloadedState.hello) },
+  { authentication: authenticationReducer }),
+  { authentication: preloadedState.authentication },
   composeEnhancers(applyMiddleware(thunkMiddleware)))
 
 const rootEl = document.querySelector(APP_CONTAINER_SELECTOR)

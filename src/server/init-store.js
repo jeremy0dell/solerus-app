@@ -1,29 +1,19 @@
-// @flow
-
-import Immutable from 'immutable'
 import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 
-import helloReducer from '../shared/reducer/hello'
-import loginReducer from '../shared/reducer/login'
+import authenticationReducer from '../shared/reducer/authentication'
 
 import combinedReducers from '../shared/reducer'
 
 const initStore = (plainPartialState: ?Object) => {
   const preloadedState = plainPartialState ? {} : undefined
 
-  if (plainPartialState && plainPartialState.hello) {
+  if (plainPartialState && plainPartialState.authentication) {
     // flow-disable-next-line
-    preloadedState.hello = helloReducer(undefined, {})
-      .merge(Immutable.fromJS(plainPartialState.hello))
-  }
-
-  if (plainPartialState && plainPartialState.login) {
-    // flow-disable-next-line
-    preloadedState.login = Object.assign(
+    preloadedState.authentication = Object.assign(
       {},
-      loginReducer(undefined, {}),
-      plainPartialState.login,
+      authenticationReducer(undefined, {}),
+      plainPartialState.authentication,
     )
   }
 

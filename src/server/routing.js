@@ -1,18 +1,20 @@
 // @flow
 
 import {
-  homePage,
-  loginPage,
+  // homePage,
+  // loginPage,
   helloPage,
   helloAsyncPage,
   helloEndpoint,
+  populateUser,
 } from './controller'
 
 import {
   HOME_PAGE_ROUTE,
-  LOGIN_PAGE_ROUTE,
+  // LOGIN_PAGE_ROUTE,
   HELLO_PAGE_ROUTE,
   HELLO_ASYNC_PAGE_ROUTE,
+  DASHBOARD_PAGE_ROUTE,
   helloEndpointRoute,
 } from '../shared/routes'
 
@@ -21,13 +23,18 @@ import renderApp from './render-app'
 export default (app: Object) => {
   app.get(HOME_PAGE_ROUTE, (req, res) => {
     console.log('got', HOME_PAGE_ROUTE, 'sending', 'res.send(renderApp(req.url, loginPage()))')
-    res.send(renderApp(req.url, homePage()))
+    res.send(renderApp(req.url, populateUser(req.user)))
   })
 
-  app.get(LOGIN_PAGE_ROUTE, (req, res) => {
-    console.log('got', LOGIN_PAGE_ROUTE, 'sending loginPage():', loginPage())
-    res.send(renderApp(req.url, loginPage()))
+  app.get(DASHBOARD_PAGE_ROUTE, (req, res) => {
+    console.log('got', DASHBOARD_PAGE_ROUTE, 'sending', req.user, req.body)
+    res.send(renderApp(req.url, populateUser(req.user)))
   })
+
+  // app.get(LOGIN_PAGE_ROUTE, (req, res) => {
+  //   console.log('got', LOGIN_PAGE_ROUTE, 'sending loginPage():', loginPage())
+  //   res.send(renderApp(req.url, loginPage()))
+  // })
 
   app.get(HELLO_PAGE_ROUTE, (req, res) => {
     helloPage()
