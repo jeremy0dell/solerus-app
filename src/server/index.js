@@ -18,6 +18,7 @@ import './db'
 import authenticationRoute from './routes/authentication'
 import usersRoute from './routes/users'
 import verificationRoute from './routes/verify'
+import productsRoute from './routes/products'
 import routing from './routing'
 
 import { WEB_PORT, STATIC_PATH, isProd } from '../shared/config'
@@ -44,7 +45,7 @@ app.use(STATIC_PATH, express.static('public'))
 
 app.use('/auth', authenticationRoute)
 app.use('/verify', verificationRoute)
-app.use('/api', usersRoute)
+app.use('/api', usersRoute, productsRoute)
 routing(app)
 
 /* eslint-disable no-console,no-unused-expressions,no-unused-vars */

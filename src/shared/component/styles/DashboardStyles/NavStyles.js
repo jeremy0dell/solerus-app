@@ -3,7 +3,14 @@ const logo = {
 }
 
 const searchBar = {
-  length: 300,
+  width: 300,
+  height: 40,
 }
 
-export default { logo, searchBar }
+const account = {
+  textTransform: 'uppercase',
+  borderBottom: '5px solid #32CD32',
+  fontWeight: 'bold',
+}
+
+export default { logo, searchBar, account }

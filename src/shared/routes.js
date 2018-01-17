@@ -10,6 +10,9 @@ export const USERS_CREATE = '/users'
 export const USERS_UPDATE = '/users/:id'
 export const USERS_DELETE = '/users/:id'
 
+export const PRODUCT_INDEX = '/products'
+export const PRODUCT_SHOW = '/products/:id'
+
 export const USERS_CONFIRMATION = '/confirmation/:token'
 export const TOKEN_RESEND = '/resend'
 

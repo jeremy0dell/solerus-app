@@ -7,7 +7,7 @@ import User from './src/server/model/user'
 mongoose.connect('mongodb://localhost/solerus')
 
 /* eslint-disable */
-const products = [{"name":"Supreme x The North Face Leopard Nuptse","description":"empower ubiquitous mindshare","retailer":"Jerde, Hagenes and Cummings","image":"https://imgur.com/nXlaCPB"},
+const products = [{"name":"Supreme x The North Face Leopard Nuptse","description":"empower ubiquitous mindshare","retailer":"Jerde, Hagenes and Cummings","image":"https://i.imgur.com/nXlaCPB.jpg"},
 {"name":"Butts","description":"evolve robust e-commerce","retailer":"Kirlin-Wolf","image":"http://dummyimage.com/176x120.png/dddddd/000000"},
 {"name":"Stiegers","description":"engage web-enabled infrastructures","retailer":"Little Inc","image":"http://dummyimage.com/225x241.jpg/5fa2dd/ffffff"},
 {"name":"Finley","description":"cultivate customized markets","retailer":"Brakus-Rowe","image":"http://dummyimage.com/141x119.png/ff4444/ffffff"},
@@ -32,7 +32,7 @@ new User(user).save()
 .then(usr => Promise.all([new Product(products[0]).save(), usr]))
 .then((res) => {
   for (let i = 0; i < 10; i += 1) {
-    const m = new Item({ serial: i, product: res[1]._id, cora_id: `123${i}4321` }).save()
+    const m = new Item({ serial: i, product: res[0]._id, cora_id: `123${i}4321` }).save()
     promises.push(m)
   }
 
@@ -42,7 +42,7 @@ new User(user).save()
   User.update(
     { full_name: 'Foo Bar' },
     { $push: { ownership: { $each: res } } },
-  )
+  ).exec()
 })
 .then(() => mongoose.disconnect())
 .catch(console.log)
