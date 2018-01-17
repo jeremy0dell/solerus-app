@@ -6,10 +6,16 @@ import Helmet from 'react-helmet'
 import { SheetsRegistry, SheetsRegistryProvider } from 'react-jss'
 import { Provider } from 'react-redux'
 import { StaticRouter } from 'react-router'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import initStore from './init-store'
 import App from './../shared/app'
 import { APP_CONTAINER_CLASS, JSS_SSR_CLASS, STATIC_PATH, WDS_PORT, isProd } from '../shared/config'
+
+const muiTheme = getMuiTheme({
+  userAgent: 'all',
+})
 
 const renderApp = (location: string, plainPartialState: ?Object, routerContext: ?Object = {}) => {
   const store = initStore(plainPartialState)
@@ -18,7 +24,9 @@ const renderApp = (location: string, plainPartialState: ?Object, routerContext: 
     <Provider store={store}>
       <StaticRouter location={location} context={routerContext}>
         <SheetsRegistryProvider registry={sheets}>
-          <App />
+          <MuiThemeProvider muiTheme={muiTheme}>
+            <App />
+          </MuiThemeProvider>
         </SheetsRegistryProvider>
       </StaticRouter>
     </Provider>)
@@ -37,7 +45,7 @@ const renderApp = (location: string, plainPartialState: ?Object, routerContext: 
         <style class="${JSS_SSR_CLASS}">${sheets.toString()}</style>
       </head>
       <body>
-        <div class="${APP_CONTAINER_CLASS}">${appHtml}</div>
+        <div class="${APP_CONTAINER_CLASS}"><div>${appHtml}</div></div>
         <script>
           window.__PRELOADED_STATE__ = ${JSON.stringify(store.getState())}
         </script>

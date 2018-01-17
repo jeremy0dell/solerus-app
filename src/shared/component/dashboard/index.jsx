@@ -1,16 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import Dashboard from './Dashboard'
 
-const Dashboard = ({ state }) => //eslint-disable-line
-  <div>
-    THIS IS THE DASHBOARD FROM
-    {console.log('dashboard says state is', state)}
-  </div>
+const DashboardContainer = ({ user }) => <Dashboard user={user} />
 
-
-Dashboard.PropTypes = {
-  state: PropTypes.object.isRequired,
-}
-
-export default connect(state => ({ state }))(Dashboard)
+export default connect(state => ({ user: state.authentication.user }))(DashboardContainer)

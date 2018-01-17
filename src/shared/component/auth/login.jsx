@@ -47,8 +47,9 @@ class Login extends Component {
     .then((res) => {
       console.log('res.data is', res.data, 'adduser is', addUserToState)
       addUserToState(res.data)
+      history.push('/dashboard')
     })
-    .then(history.push('/dashboard'))
+    .catch(console.log)
   }
 
   render() {

@@ -22,7 +22,7 @@ const products = [{"name":"Supreme x The North Face Leopard Nuptse","description
 const user = {
   full_name: 'Foo Bar',
   email: 'jeremy@gmail.com',
-  password: '$2a$10$AxoLMXTd4/CJY9XPnLVQe.UgbCTahIf0YblsKLC0sfX0k/cj8Kosq', // 'qwerqwer'
+  password: '$2a$10$is/Zb98l9UYf8wzYWMdk5epyn5hoXlwxg48Qjqpg9bkOgyQ0BFCw.', // 'qwerqwer'
   isVerified: true,
 }
 
@@ -39,11 +39,10 @@ new User(user).save()
   return Promise.all(promises)
 })
 .then((res) => {
-  console.log('res is', res)
   User.update(
     { full_name: 'Foo Bar' },
     { $push: { ownership: { $each: res } } },
-  ).then(console.log)
+  )
 })
 .then(() => mongoose.disconnect())
 .catch(console.log)

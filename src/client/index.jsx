@@ -11,6 +11,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import Tether from 'tether'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import App from '../shared/app'
 import { APP_CONTAINER_SELECTOR, JSS_SSR_SELECTOR, isProd } from '../shared/config'
@@ -37,7 +38,9 @@ const wrapApp = (AppComponent, reduxStore) =>
   <Provider store={reduxStore}>
     <BrowserRouter>
       <AppContainer>
-        <AppComponent />
+        <MuiThemeProvider>
+          <AppComponent />
+        </MuiThemeProvider>
       </AppContainer>
     </BrowserRouter>
   </Provider>
