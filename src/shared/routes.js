@@ -20,6 +20,7 @@ export const HOME_PAGE_ROUTE = '/'
 export const LOGIN_PAGE_ROUTE = '/login'
 export const SIGNUP_PAGE_ROUTE = '/signup'
 export const DASHBOARD_PAGE_ROUTE = '/dashboard'
+export const DETAIL_PAGE_ROUTE = '/dashboard/:id' // item_id
 
 export const HELLO_PAGE_ROUTE = '/hello'
 export const HELLO_ASYNC_PAGE_ROUTE = '/hello-async'

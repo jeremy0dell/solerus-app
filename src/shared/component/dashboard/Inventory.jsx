@@ -2,9 +2,9 @@ import React from 'react'
 
 import Card from './Card'
 
-const Inventory = ({ products }) =>
+const Inventory = ({ items }) =>
   <div className="row">
-    { products && products.map((item, idx) =>
+    { items && items.map((item, idx) =>
       <Card key={idx} item={item} />, // eslint-disable-line
     ) }
   </div>
