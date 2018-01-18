@@ -64,7 +64,7 @@ class Login extends Component {
     }
 
     return (
-      <div style={{ backgroundColor: '#7DD0FF', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+      <div style={{ backgroundColor: '#F6F6F6', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
         {banner}
         <div style={styles.boxShadow}>
           <img style={styles.logo} src="/static/images/header-logo.png" alt="Solerus logo" />

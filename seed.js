@@ -7,7 +7,7 @@ import User from './src/server/model/user'
 mongoose.connect('mongodb://localhost/solerus')
 
 /* eslint-disable */
-const products = [{"name":"Supreme x The North Face Leopard Nuptse","description":"empower ubiquitous mindshare","retailer":"Jerde, Hagenes and Cummings","image":"https://i.imgur.com/nXlaCPB.jpg"},
+const products = [{"name":"Supreme x The North Face Leopard Nuptse","description":"empower ubiquitous mindshare","retailer":"Jerde, Hagenes and Cummings","image":"https://i.imgur.com/fqQ2Bfs.jpg"},
 {"name":"Butts","description":"evolve robust e-commerce","retailer":"Kirlin-Wolf","image":"http://dummyimage.com/176x120.png/dddddd/000000"},
 {"name":"Stiegers","description":"engage web-enabled infrastructures","retailer":"Little Inc","image":"http://dummyimage.com/225x241.jpg/5fa2dd/ffffff"},
 {"name":"Finley","description":"cultivate customized markets","retailer":"Brakus-Rowe","image":"http://dummyimage.com/141x119.png/ff4444/ffffff"},

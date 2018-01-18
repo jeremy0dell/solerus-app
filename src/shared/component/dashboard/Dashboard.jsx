@@ -4,7 +4,7 @@ import Nav from './Nav'
 import Body from './Body'
 
 const Dashboard = ({ user, items }) => // eslint-disable-line
-  <div style={{ margin: '30px 30px 0px 30px' }}>
+  <div style={{ margin: '0px 0px 0px 0px', backgroundColor: '#F6F6F6' }}>
     <Nav />
     <Body user={user} items={items} />
   </div>

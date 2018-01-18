@@ -36,7 +36,7 @@ const LandingPage = ({ history }) =>
     <div className="bodyText">
       <div style={{ width: 500 }}>
         <h2 className="paraTitle" id="header">Completely secure.</h2>
-        <p className="text"> Solerus tokens provide proof of ownership for any product. Think of it as a receipt proving that you bought an authentic item. Tokens can be issued for any valuable asset like jewelry, watches, or handbags. Each token is exclusively created by manufacturers and accessible from your solerus account. You receive the corresponding token when you purchase a Solerus-backed product.</p>
+        <p className="text"> Solerus tokens provide proof of ownership for any product. Think of it as a receipt proving that you bought an authentic item. Tokens can be issued for any valuable asset like jewelry, watches, or handbags. Each token is exclusively created by manufacturers and accessible from your Solerus account. You receive the corresponding token when you purchase a Solerus-backed product.</p>
       </div>
 
       <img className="imgContainer" id="imgRight" src="/static/images/vault.png" alt="" />

@@ -37,12 +37,15 @@ const submitButton = {
   border: 'none',
   fontSize: '0px',
   lineHeight: '0',
+  outline: '0',
+  cursor: 'pointer',
 }
 
 const boxShadow = {
   width: '400px',
   backgroundColor: 'white',
-  boxShadow: '0 2px 8px rgba(0,0,0,.50)',
+  boxShadow: '0 2px 8px rgba(0,0,0,.15)',
+  borderRadius: '5px',
 }
 
 const bannerVerified = {
