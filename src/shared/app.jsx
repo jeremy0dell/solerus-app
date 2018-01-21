@@ -26,14 +26,17 @@ import {
 const App = () =>
   <div>
     <Helmet titleTemplate={`%s | ${APP_NAME}`} defaultTitle={APP_NAME} />
-    <Switch>
-      <Route exact path={HOME_PAGE_ROUTE} render={() => <LandingPage />} />
-      <Route exact path={SIGNUP_PAGE_ROUTE} render={() => <SignUp />} />
-      <Route exact path={LOGIN_PAGE_ROUTE} render={() => <Login />} />
-      <Route exact path={DASHBOARD_PAGE_ROUTE} render={() => <Dashboard />} />
-      <Route exact path={DETAIL_PAGE_ROUTE} render={() => <Detailed />} />
-      <Route component={NotFoundPage} />
-    </Switch>
+    <div style={{ minHeight: 'calc(100vh - 95px)' }}>
+      {/* This is for anchoring the footer to the bootom of the page */}
+      <Switch>
+        <Route exact path={HOME_PAGE_ROUTE} render={() => <LandingPage />} />
+        <Route exact path={SIGNUP_PAGE_ROUTE} render={() => <SignUp />} />
+        <Route exact path={LOGIN_PAGE_ROUTE} render={() => <Login />} />
+        <Route exact path={DASHBOARD_PAGE_ROUTE} render={() => <Dashboard />} />
+        <Route exact path={DETAIL_PAGE_ROUTE} render={() => <Detailed />} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </div>
     <Footer />
   </div>
 
