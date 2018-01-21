@@ -9,6 +9,7 @@ import LandingPage from './component/page/landing'
 import Login from './component/auth/login'
 import SignUp from './component/auth/signup'
 import Dashboard from './component/dashboard'
+import Detailed from './component/detailed'
 // import HomePage from './component/page/home'
 import Footer from './component/footer'
 // import Nav from './component/nav'
@@ -19,6 +20,7 @@ import {
   LOGIN_PAGE_ROUTE,
   SIGNUP_PAGE_ROUTE,
   DASHBOARD_PAGE_ROUTE,
+  DETAIL_PAGE_ROUTE,
 } from './routes'
 
 const App = () =>
@@ -29,6 +31,7 @@ const App = () =>
       <Route exact path={SIGNUP_PAGE_ROUTE} render={() => <SignUp />} />
       <Route exact path={LOGIN_PAGE_ROUTE} render={() => <Login />} />
       <Route exact path={DASHBOARD_PAGE_ROUTE} render={() => <Dashboard />} />
+      <Route exact path={DETAIL_PAGE_ROUTE} render={() => <Detailed />} />
       <Route component={NotFoundPage} />
     </Switch>
     <Footer />
