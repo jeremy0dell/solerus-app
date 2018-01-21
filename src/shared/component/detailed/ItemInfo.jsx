@@ -2,9 +2,10 @@ import React from 'react'
 import keys from 'lodash/keys'
 
 const toRender = prop => [
-  { 'Cora ID': prop.cora_id },
+  { 'Serial Number': prop.cora_id },
+  { 'Manufacturer': prop.product.retailer},
   { 'Item Summary': prop.product.description },
-  { 'Serial Number': prop.serial },
+  { 'Solerus ID': prop.serial },
 ]
 
 const ItemInfo = ({ item }) =>
@@ -12,7 +13,7 @@ const ItemInfo = ({ item }) =>
     {
       toRender(item).map(item =>
         <div key={keys(item)[0]}>
-          <div style={{ fontWeight: 700 }}>{keys(item)[0]}</div>
+          <div style={{ fontWeight: 700, marginTop: '5%' }}>{keys(item)[0]}</div>
           <div style={{ fontWeight: 200 }}>{item[keys(item)[0]]}</div>
         </div>)
     }

@@ -12,16 +12,18 @@ import styles from '../styles/DetailedStyles'
 //   <Buttons />
 // </div>
 
-const Button = ({ text }) => <button style={styles.transferButton}>{text}</button>
+const TransferButton = ({ text }) => <button style={styles.transferButton}>{text}</button>
+const LostButton = ({ text }) => <button style={styles.lostButton}>{text}</button>
+
 
 const Body = ({ item }) =>
   <div style={styles.body}>
     <ItemView item={item} />
-    <div>
+    <div style={{width: '40%'}}>
       <ItemInfo item={item} />
-      <div style={{ display: 'flex' }}>
-        <Button text="Transfer" />
-        <Button text="Report Lost" />
+      <div style={{ display: 'flex', marginTop: '5%' }}>
+        <TransferButton text="Transfer" />
+        <LostButton text="Report Lost" />
       </div>
     </div>
   </div>

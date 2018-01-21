@@ -12,8 +12,10 @@ const ItemView = ({ item }) =>
   <div style={styles.viewBody}>
     <Button />
     <div>
-      <div>Your {item.product.name}</div>
-      <img style={styles.itemImg} src={item.product.image} alt="Your item" />
+      <div style={styles.itemName}>Your {item.product.name}</div>
+      <div style={styles.card}>
+        <img style={styles.itemImg} src={item.product.image} alt="Your item" />
+      </div>
     </div>
   </div>
 

@@ -10,8 +10,8 @@ const card = {
 }
 
 const cardImg = {
-  height: 150,
-  width: 150,
+  height: 'auto',
+  width: 175,
   display: 'block',
   margin: 'auto',
   marginTop: '60px',
@@ -19,7 +19,7 @@ const cardImg = {
 
 const cardText = {
   textAlign: 'center',
-  marginTop: '10px',
+  marginBottom: '10px',
 }
 
 const bodyStyle = {

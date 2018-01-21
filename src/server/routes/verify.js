@@ -25,7 +25,7 @@ router.get(USERS_CONFIRMATION, (req, res, next) => {
       assign(user, { isVerified: true })
       return user.save()
     })
-    .then(res.redirect(301, LOGIN_PAGE_ROUTE))
+    .then(res.redirect(301, '/login?verify=1'))
     .catch(next)
 })
 

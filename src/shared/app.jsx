@@ -26,7 +26,7 @@ import {
 const App = () =>
   <div>
     <Helmet titleTemplate={`%s | ${APP_NAME}`} defaultTitle={APP_NAME} />
-    <div style={{ minHeight: 'calc(100vh - 95px)' }}>
+    <div style={{ minHeight: 'calc(100vh - 95px)', backgroundColor: '#F6F6F6' }}>
       {/* This is for anchoring the footer to the bootom of the page */}
       <Switch>
         <Route exact path={HOME_PAGE_ROUTE} render={() => <LandingPage />} />

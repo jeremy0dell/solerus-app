@@ -51,14 +51,14 @@ const boxShadow = {
 const bannerVerified = {
   width: '400px',
   height: '30px',
-  backgroundColor: '#80FF72',
+  backgroundColor: '#04724D',
   boxShadow: '0 2px 8px rgba(0,0,0,.50)',
   display: 'flex',
   flexDirection: 'column',
   marginBottom: '10px',
   fontSize: '15px',
   fontFamily: 'Inter UI',
-  color: 'black',
+  color: 'white',
   textAlign: 'center',
   lineHeight: '30px',
 }

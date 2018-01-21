@@ -7,8 +7,8 @@ import User from './src/server/model/user'
 mongoose.connect('mongodb://localhost/solerus')
 
 /* eslint-disable */
-const products = [{"name":"Supreme x The North Face Leopard Nuptse","description":"empower ubiquitous mindshare","retailer":"Jerde, Hagenes and Cummings","image":"https://i.imgur.com/fqQ2Bfs.jpg"},
-{"name":"Butts","description":"evolve robust e-commerce","retailer":"Kirlin-Wolf","image":"http://dummyimage.com/176x120.png/dddddd/000000"},
+const products = [{"name":"Supreme x The North Face Leopard Nuptse","description":"Ideal for unpredictable weather forecasts, this packable, warm jacket is crafted from more than 50% recycled content and insulated with 700 fill down that’s certified to the Responsible Down Standard (RDS).","retailer":"Supreme","image":"https://i.imgur.com/fqQ2Bfs.jpg"},
+{"name":"Rolex Submariner","description":"The Rolex Submariner’s robust and functional design swiftly became iconic. With their subtly redesigned Oyster case, distinctive dial with large luminescent hour markers, graduated rotatable Cerachrom bezel and solid link Oyster bracelet, the latest generation Submariner and Submariner Date are firmly in line with the original model launched in 1953.","retailer":"Rolex","image":"https://s7test3.scene7.com/is/image/Rolex/?src=is%7BRolex%2Fshadow_oyster_submariner_40%3Flayer%3D1%26src%3D41315%26layer%3D2%26src%3D42290_g_40%26layer%3D3%26src%3D41343%7D&$rv55-watch-grid-retina$"},
 {"name":"Stiegers","description":"engage web-enabled infrastructures","retailer":"Little Inc","image":"http://dummyimage.com/225x241.jpg/5fa2dd/ffffff"},
 {"name":"Finley","description":"cultivate customized markets","retailer":"Brakus-Rowe","image":"http://dummyimage.com/141x119.png/ff4444/ffffff"},
 {"name":"Meran","description":"recontextualize user-centric bandwidth","retailer":"Halvorson-Konopelski","image":"http://dummyimage.com/106x249.png/dddddd/000000"},
@@ -26,7 +26,15 @@ const user = {
   isVerified: true,
 }
 
+const userTwo = {
+  full_name: 'Another Guy',
+  email: 'azhar@gmail.com',
+  password: '$2a$10$is/Zb98l9UYf8wzYWMdk5epyn5hoXlwxg48Qjqpg9bkOgyQ0BFCw.', // 'qwerqwer'
+  isVerified: true,
+}
+
 const promises = []
+const prom = []
 
 new User(user).save()
 .then(usr => Promise.all([new Product(products[0]).save(), usr]))
@@ -41,6 +49,22 @@ new User(user).save()
 .then((res) => {
   User.update(
     { full_name: 'Foo Bar' },
+    { $push: { ownership: { $each: res } } },
+  ).exec()
+})
+.then(new User(userTwo).save())
+.then(usr => Promise.all([new Product(products[1]).save(), usr]))
+.then((res) => {
+  for (let i = 0; i < 10; i += 1) {
+    const m = new Item({ serial: i, product: res[0]._id, cora_id: `12${i}21` }).save()
+    prom.push(m)
+  }
+
+  return Promise.all(prom)
+})
+.then((res) => {
+  User.update(
+    { full_name: 'Another Guy' },
     { $push: { ownership: { $each: res } } },
   ).exec()
 })

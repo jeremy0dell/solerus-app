@@ -14,10 +14,6 @@ const Nav = () =>
         src="/static/images/LogoHeaderNoIcon.png"
         alt="Solerus logo"
       />
-
-      <div className="row">
-        <div style={styles.account}>Account</div>
-      </div>
     </div>
   </div>
 
