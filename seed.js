@@ -8,11 +8,11 @@ mongoose.connect('mongodb://localhost/solerus')
 
 /* eslint-disable */
 const products = [{"name":"Supreme x The North Face Leopard Nuptse","description":"Ideal for unpredictable weather forecasts, this packable, warm jacket is crafted from more than 50% recycled content and insulated with 700 fill down that’s certified to the Responsible Down Standard (RDS).","retailer":"Supreme","image":"https://i.imgur.com/fqQ2Bfs.jpg"},
-{"name":"Rolex Submariner","description":"The Rolex Submariner’s robust and functional design swiftly became iconic. With their subtly redesigned Oyster case, distinctive dial with large luminescent hour markers, graduated rotatable Cerachrom bezel and solid link Oyster bracelet, the latest generation Submariner and Submariner Date are firmly in line with the original model launched in 1953.","retailer":"Rolex","image":"https://s7test3.scene7.com/is/image/Rolex/?src=is%7BRolex%2Fshadow_oyster_submariner_40%3Flayer%3D1%26src%3D41315%26layer%3D2%26src%3D42290_g_40%26layer%3D3%26src%3D41343%7D&$rv55-watch-grid-retina$"},
-{"name":"Stiegers","description":"engage web-enabled infrastructures","retailer":"Little Inc","image":"http://dummyimage.com/225x241.jpg/5fa2dd/ffffff"},
-{"name":"Finley","description":"cultivate customized markets","retailer":"Brakus-Rowe","image":"http://dummyimage.com/141x119.png/ff4444/ffffff"},
-{"name":"Meran","description":"recontextualize user-centric bandwidth","retailer":"Halvorson-Konopelski","image":"http://dummyimage.com/106x249.png/dddddd/000000"},
-{"name":"Toal","description":"architect vertical networks","retailer":"Grimes Group","image":"http://dummyimage.com/216x186.bmp/ff4444/ffffff"},
+{"name":"Rolex Submariner","description":"The Rolex Submariner’s robust and functional design swiftly became iconic. With their subtly redesigned Oyster case, distinctive dial with large luminescent hour markers, graduated rotatable Cerachrom bezel and solid link Oyster bracelet, the latest generation Submariner and Submariner Date are firmly in line with the original model launched in 1953.","retailer":"Rolex","image":"https://cdn2.jomashop.com/media/catalog/product/r/o/rolex-oyster-perpetual-submariner-black-dial-black-cerachrom-bezel-steel-mens-watch-116610ln.jpg"},
+{"name":"iPhone X","description":"Our vision has always been to create an iPhone that is entirely screen. One so immersive the device itself disappears into the experience. And so intelligent it can respond to a tap, your voice, and even a glance. With iPhone X, that vision is now a reality. Say hello to the future.","retailer":"Apple","image":"https://onetechmind.com/content/images/iphonex-hero.png"},
+{"name":"Henry Sunglasses","description":"Vintage style round shiny acetate sunglasses with metal insert and signature 'T' logo.","retailer":"Tom Ford","image":"https://i1.adis.ws/i/tom_ford/FT0248_05N_51_A?$pdp_hero_dsk$&bg=rgb(255,255,255)"},
+{"name":"Rembrandt Oil on Canvas Painting","description":"School of Rembrandt Harmensz. van Rijn. circa 1650, A kitchen interior and a woman plucking a chicken with a copper pot, baskets and a plate of fish, oil on canvas","retailer":"Sotheby's","image":"https://i.pinimg.com/564x/ed/b5/38/edb53802ec7488fc99383654a284a886.jpg"},
+{"name":"Cartier Gold Half Diamond Love Bracelet","description":"Love bracelet, 18K yellow gold.","retailer":"Cartier","image":"http://www.raymondleejewelers.net/wp-content/uploads/2014/12/Cartier-18K-Yellow-Gold-Love-Diamond-Bangle-Bracelet-1024x1024.jpg"},
 {"name":"Sainte Paul","description":"utilize interactive users","retailer":"Schaefer, Schmeler and Price","image":"http://dummyimage.com/209x114.png/dddddd/000000"},
 {"name":"Iacobucci","description":"engineer e-business deliverables","retailer":"Cartwright, Lynch and Schulist","image":"http://dummyimage.com/169x240.bmp/5fa2dd/ffffff"},
 {"name":"Ewbanke","description":"redefine B2C e-commerce","retailer":"Heaney LLC","image":"http://dummyimage.com/100x110.png/5fa2dd/ffffff"},
@@ -39,10 +39,43 @@ const prom = []
 new User(user).save()
 .then(usr => Promise.all([new Product(products[0]).save(), usr]))
 .then((res) => {
-  for (let i = 0; i < 10; i += 1) {
-    const m = new Item({ serial: i, product: res[0]._id, cora_id: `123${i}4321` }).save()
-    promises.push(m)
-  }
+  const m = new Item({ serial: 0, product: res[0]._id, cora_id: `12304321` }).save()
+  promises.push(m)
+
+  return Promise.all(promises)
+})
+.then(usr => Promise.all([new Product(products[1]).save(), usr]))
+.then((res) => {
+  const m = new Item({ serial: 1, product: res[0]._id, cora_id: `12314321` }).save()
+  promises.push(m)
+
+  return Promise.all(promises)
+})
+.then(usr => Promise.all([new Product(products[2]).save(), usr]))
+.then((res) => {
+  const m = new Item({ serial: 2, product: res[0]._id, cora_id: `12324321` }).save()
+  promises.push(m)
+
+  return Promise.all(promises)
+})
+.then(usr => Promise.all([new Product(products[3]).save(), usr]))
+.then((res) => {
+  const m = new Item({ serial: 3, product: res[0]._id, cora_id: `12334321` }).save()
+  promises.push(m)
+
+  return Promise.all(promises)
+})
+.then(usr => Promise.all([new Product(products[4]).save(), usr]))
+.then((res) => {
+  const m = new Item({ serial: 4, product: res[0]._id, cora_id: `12344321` }).save()
+  promises.push(m)
+
+  return Promise.all(promises)
+})
+.then(usr => Promise.all([new Product(products[5]).save(), usr]))
+.then((res) => {
+  const m = new Item({ serial: 5, product: res[0]._id, cora_id: `12354321` }).save()
+  promises.push(m)
 
   return Promise.all(promises)
 })
@@ -53,21 +86,6 @@ new User(user).save()
   ).exec()
 })
 .then(new User(userTwo).save())
-.then(usr => Promise.all([new Product(products[1]).save(), usr]))
-.then((res) => {
-  for (let i = 0; i < 10; i += 1) {
-    const m = new Item({ serial: i, product: res[0]._id, cora_id: `12${i}21` }).save()
-    prom.push(m)
-  }
-
-  return Promise.all(prom)
-})
-.then((res) => {
-  User.update(
-    { full_name: 'Another Guy' },
-    { $push: { ownership: { $each: res } } },
-  ).exec()
-})
 .then(() => mongoose.disconnect())
 .catch(console.log)
 // Make fake user

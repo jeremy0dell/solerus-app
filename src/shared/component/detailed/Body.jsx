@@ -19,7 +19,7 @@ const LostButton = ({ text }) => <button style={styles.lostButton}>{text}</butto
 const Body = ({ item }) =>
   <div style={styles.body}>
     <ItemView item={item} />
-    <div style={{width: '40%'}}>
+    <div style={{ width: '40%' }}>
       <ItemInfo item={item} />
       <div style={{ display: 'flex', marginTop: '5%' }}>
         <TransferButton text="Transfer" />

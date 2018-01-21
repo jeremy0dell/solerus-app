@@ -3,7 +3,7 @@ import keys from 'lodash/keys'
 
 const toRender = prop => [
   { 'Serial Number': prop.cora_id },
-  { 'Manufacturer': prop.product.retailer},
+  { Manufacturer: prop.product.retailer },
   { 'Item Summary': prop.product.description },
   { 'Solerus ID': prop.serial },
 ]

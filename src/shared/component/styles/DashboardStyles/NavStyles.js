@@ -12,9 +12,8 @@ const searchBar = {
 
 const add = {
   textTransform: 'uppercase',
-  // borderBottom: '5px solid #32CD32',
-  // fontWeight: 'bold',
   margin: '30px 0px 30px 30px',
+  cursor: 'pointer',
 }
 
 const account = {
@@ -22,6 +21,7 @@ const account = {
   // borderBottom: '5px solid #32CD32',
   // fontWeight: 'bold',
   margin: '30px 5px 0px 15px',
+  cursor: 'pointer',
 }
 
 export default { logo, searchBar, account, add }

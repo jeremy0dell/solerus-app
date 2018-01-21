@@ -33,7 +33,7 @@ const transferButton = {
   borderRadius: '11px',
   fontFamily: 'Arial',
   color: '#ffffff',
-  fontSize: '20px',
+  fontSize: '1.4vw',
   padding: '15px 50px 15px 50px',
   textDecoration: 'none',
   width: '40%',
@@ -48,7 +48,7 @@ const lostButton = {
   borderRadius: '11px',
   fontFamily: 'Arial',
   color: '#ffffff',
-  fontSize: '20px',
+  fontSize: '1.4vw',
   padding: '15px 50px 15px 50px',
   textDecoration: 'none',
   width: '40%',
@@ -73,7 +73,7 @@ const itemName = {
 
 const card = {
   height: 'auto',
-  width: "70%",
+  width: '70%',
   display: 'block',
   // margin: '0',
   marginLeft: 'auto',
