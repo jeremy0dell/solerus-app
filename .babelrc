@@ -5,6 +5,12 @@
     "react"
   ],
   "plugins": [
-    "flow-react-proptypes"
+    "flow-react-proptypes",
+    ["module-resolver", {
+      "alias": {
+        "client": "./src/client",
+        "server": "./src/server"
+      }
+    }]
   ]
 }

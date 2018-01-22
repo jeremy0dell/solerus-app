@@ -5,6 +5,7 @@ export const AUTH_ME = '/me'
 export const AUTH_LOGOUT = '/logout'
 
 export const USERS_INDEX = '/users'
+export const USERS_TRANSFER = '/users/transfer'
 export const USERS_SHOW = '/users/:id'
 export const USERS_CREATE = '/users'
 export const USERS_UPDATE = '/users/:id'
@@ -12,6 +13,9 @@ export const USERS_DELETE = '/users/:id'
 
 export const PRODUCT_INDEX = '/products'
 export const PRODUCT_SHOW = '/products/:id'
+
+export const ITEM_INDEX = '/items'
+export const ITEM_SHOW = '/items/:id'
 
 export const USERS_CONFIRMATION = '/confirmation/:token'
 export const TOKEN_RESEND = '/resend'

@@ -11,7 +11,7 @@ import Detailed from './Detailed'
 // render everything
 // lol jk, get everything from querystring and redux state
 
-const DetailContainer = ({ item }) => <Detailed item={item} />
+const DetailContainer = ({ item, email }) => <Detailed item={item} email={email} />
 
 const mapStateToProps = (state, ownProps) => {
   const { location } = ownProps
@@ -19,6 +19,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return ({
     item: find(state.authentication.user.ownership, ['_id', pathname.split('/')[2]]),
+    email: state.authentication.user.email,
   })
 }
 
