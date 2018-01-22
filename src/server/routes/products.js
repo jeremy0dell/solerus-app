@@ -15,7 +15,6 @@ router.get(PRODUCT_SHOW, (req, res, next) => {
 
   Product.findById(id)
   .then((product) => {
-    console.log('id is', id, 'product is', product)
     if (product) {
       res.json(product)
       return

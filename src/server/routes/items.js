@@ -15,7 +15,6 @@ router.get(ITEM_SHOW, (req, res, next) => {
 
   Item.findById(id)
   .then((item) => {
-    console.log('id is', id, 'item is', item)
     if (item) {
       res.json(item)
       return

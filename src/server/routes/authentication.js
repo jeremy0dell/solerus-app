@@ -51,22 +51,10 @@ passport.deserializeUser((user, done) => {
 
 const router = express.Router()
 
-router.get('/hello/:token', (req, res) => {
-  console.log(req.params, req.query, req.body)
-  if (req.user) {
-    // logged in
-    res.send(`logged in and user is ${req.user}`)
-  } else {
-    // not logged in
-    res.send('could not find user')
-  }
-})
-
 router.post(AUTH_USER,
   passport.authenticate('local', { failureRedirect: '/login' }),
   (req, res) => {
     const { user } = req
-    console.log('body is', user, omit(user.toObject(), 'password'), omit({ a: 12, b: 13 }, 'b'))
     res.json(omit(user.toObject(), 'password'))
   },
 )

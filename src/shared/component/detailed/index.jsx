@@ -11,7 +11,12 @@ import Detailed from './Detailed'
 // render everything
 // lol jk, get everything from querystring and redux state
 
-const DetailContainer = ({ item, email }) => <Detailed item={item} email={email} />
+const DetailContainer = ({ item, email, history }) =>
+  <Detailed
+    history={history}
+    item={item}
+    email={email}
+  />
 
 const mapStateToProps = (state, ownProps) => {
   const { location } = ownProps

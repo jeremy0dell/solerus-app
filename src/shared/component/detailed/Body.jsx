@@ -25,7 +25,7 @@ const TransferButton = ({ text }) =>
 const LostButton = ({ text }) => <button style={styles.lostButton}>{text}</button>
 
 
-const Body = ({ item, email }) =>
+const Body = ({ item, email, history }) =>
   <div style={styles.body}>
     <ItemView item={item} />
     <div style={{ width: '40%' }}>
@@ -34,7 +34,7 @@ const Body = ({ item, email }) =>
         <TransferButton text="Transfer" />
         <LostButton text="Report Lost" />
         {console.log('item is', item)}
-        <TransferModal email={email} id={item._id} />
+        <TransferModal history={history} email={email} id={item._id} />
       </div>
     </div>
   </div>
