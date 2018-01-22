@@ -1,9 +1,10 @@
 import React from 'react'
 import SearchBar from 'material-ui-search-bar'
+import AddProductModal from './AddProductModal'
 
 import styles from '../styles/DashboardStyles/NavStyles'
 
-const Nav = () =>
+const Nav = ({ user }) =>
   <div className="container-fluid">
     <div
       className="row justify-content-between"
@@ -23,8 +24,15 @@ const Nav = () =>
         style={styles.searchBar}
       />
       <div className="row">
-        <div style={styles.add}>Add Product</div>
+        <div style={styles.add}>
+          <button
+            style={styles.addButton}
+            data-toggle="modal"
+            data-target="#addProductModal"
+          > Add Product </button>
+        </div>
         <div style={styles.account}>Account</div>
+        <AddProductModal user={user}/>
       </div>
     </div>
   </div>
