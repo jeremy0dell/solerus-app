@@ -32,10 +32,7 @@ const TransferModal = ({ form, setForm, email, id, addUserToState }) => (console
             className="btn btn-primary"
             onClick={() => {
               axios.post(`http://localhost:8000/api${USERS_TRANSFER}`, { item: id, transferer: email, transferee: form.email })
-              .then((res) => {
-                console.log('res is', res.data[0])
-                addUserToState(res.data[0])
-              })
+              .then(console.log)
               .catch(console.log)
             }}
           >Transfer</button>

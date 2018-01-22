@@ -33,6 +33,7 @@ const Body = ({ item, email }) =>
       <div style={{ display: 'flex', marginTop: '5%' }}>
         <TransferButton text="Transfer" />
         <LostButton text="Report Lost" />
+        {console.log('item is', item)}
         <TransferModal email={email} id={item._id} />
       </div>
     </div>
