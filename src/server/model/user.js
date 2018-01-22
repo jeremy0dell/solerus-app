@@ -8,6 +8,8 @@ const userSchema = Schema({
   ownership: [{}],
   passwordResetToken: String,
   passwordResetExpires: Date,
+}, {
+  usePushEach: true
 })
 
 export default mongoose.model('user', userSchema)

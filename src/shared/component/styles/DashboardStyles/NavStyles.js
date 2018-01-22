@@ -10,12 +10,6 @@ const searchBar = {
   borderRadius: '5px',
 }
 
-const add = {
-  textTransform: 'uppercase',
-  margin: '30px 0px 30px 30px',
-  cursor: 'pointer',
-}
-
 const account = {
   textTransform: 'uppercase',
   // borderBottom: '5px solid #32CD32',
@@ -24,4 +18,13 @@ const account = {
   cursor: 'pointer',
 }
 
-export default { logo, searchBar, account, add }
+const addButton = {
+  textTransform: 'uppercase',
+  margin: '30px 0px 30px 30px',
+  border: 'none',
+  background: 'none',
+  cursor: 'pointer',
+  outline: '0',
+}
+
+export default { logo, searchBar, account, addButton }

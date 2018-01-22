@@ -2,6 +2,7 @@ import React from 'react'
 import { withState } from 'recompose'
 import { connect } from 'react-redux'
 import axios from 'axios'
+import validator from 'validator'
 
 import { addUserToState } from '../../action/authentication'
 import { USERS_TRANSFER } from '../../routes'
@@ -13,14 +14,16 @@ const TransferModal = ({ form, setForm, email, id, addUserToState }) => (console
     <div className="modal-dialog" role="document">
       <div className="modal-content">
         <div className="modal-header">
-          <h5 className="modal-title" id="exampleModalLabel">Transfer</h5>
+          <h5 className="modal-title" id="exampleModalLabel">Transfer Solerus Title</h5>
           <button type="button" className="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div className="modal-body">
-          <div>To transfer this asset to another Solerus user, please enter their email below.</div>
+          <div style={{marginBottom: '10px'}}>To transfer this asset and title to another Solerus user, please enter their email below.</div>
+          <div style={{marginBottom: '10px'}}>All transfers are permanent, so please ensure you are transfering the correct product.</div>
           <input
+            style={{width: '80%'}}
             value={form.email}
             onChange={e => setForm({ email: e.target.value })}
           />
@@ -31,7 +34,7 @@ const TransferModal = ({ form, setForm, email, id, addUserToState }) => (console
             type="button"
             className="btn btn-primary"
             onClick={() => {
-              axios.post(`http://localhost:8000/api${USERS_TRANSFER}`, { item: id, transferer: email, transferee: form.email })
+              axios.post(`http://localhost:8000/api${USERS_TRANSFER}`, { item: id, transferer: email, transferee: validator.normalizeEmail(form.email) })
               .then(console.log)
               .catch(console.log)
             }}
