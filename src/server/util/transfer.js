@@ -25,7 +25,6 @@ const transferItem = (item, transferer, transferee) => {
 
     toGetRes.ownership.push(found[0])
     toGetRes.markModified('ownership')
-    console.log("looking for", toGiveRes, toGetRes )
     return Promise.all([toGiveRes.save(), toGetRes.save()])
   })
 }

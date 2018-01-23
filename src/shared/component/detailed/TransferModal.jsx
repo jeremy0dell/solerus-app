@@ -21,7 +21,7 @@ const TransferModal = ({ form, setForm, email, id, removeItemFromState, history 
         </div>
         <div className="modal-body">
           <div style={{ marginBottom: '10px' }}>To transfer this asset and title to another Solerus user, please enter their email below.</div>
-          <div style={{ marginBottom: '10px' }}>All transfers are permanent, so please ensure you are transfering the correct product.</div>
+          <div style={{ marginBottom: '10px' }}>All transfers are permanent, so please ensure you are transfering the correct product certificate.</div>
           <input
             style={{ width: '80%' }}
             value={form.email}
