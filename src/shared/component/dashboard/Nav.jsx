@@ -32,7 +32,7 @@ const Nav = ({ user }) =>
           > Add Product </button>
         </div>
         <div style={styles.account}>Account</div>
-        <AddProductModal user={user}/>
+        <AddProductModal user={user} />
       </div>
     </div>
   </div>

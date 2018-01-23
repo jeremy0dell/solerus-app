@@ -15,7 +15,7 @@ class DashboardContainer extends Component { // eslint-disable-line
 
   componentDidMount() {
     const { user } = this.props
-    console.log('user is now', user.ownership[0].product)
+    console.log('user is now', user.ownership)
 
     user.ownership.forEach(
       item => Promise.all([axios.get(

@@ -12,6 +12,7 @@ import transferItem from '../util/transfer'
 
 import {
   USERS_CREATE,
+  USERS_SHOW,
   USERS_TRANSFER,
   TOKEN_RESEND,
 } from '../../shared/routes'
@@ -26,6 +27,15 @@ router.post(USERS_TRANSFER, (req, res) => {
 
   transferItem(item, transferer, transferee)
   .then((response) => { res.send(response) })
+})
+
+router.get(USERS_SHOW, (req, res, next) => {
+  console.log(req.body, req.params)
+
+  User
+    .findOne({ _id: req.params.id })
+    .then(data => res.json(data))
+    .catch(next)
 })
 
 router.post(USERS_CREATE, (req, res, next) => {

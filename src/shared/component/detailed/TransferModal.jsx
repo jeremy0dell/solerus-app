@@ -4,12 +4,12 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 import validator from 'validator'
 
-import { addUserToState } from '../../action/authentication'
+import { removeItemFromState } from '../../action/authentication'
 import { USERS_TRANSFER } from '../../routes'
 
 const formState = withState('form', 'setForm', { email: '' })
 
-const TransferModal = ({ form, setForm, email, id, addUserToState }) => (console.log(id, email, form.email), // eslint-disable-line
+const TransferModal = ({ form, setForm, email, id, removeItemFromState, history }) => (console.log(id, email, form.email), // eslint-disable-line
   <div className="modal fade" id="transferModal" tabIndex="-1" role="dialog" aria-labelledby="transferModalLabel" aria-hidden="true">
     <div className="modal-dialog" role="document">
       <div className="modal-content">
@@ -20,10 +20,10 @@ const TransferModal = ({ form, setForm, email, id, addUserToState }) => (console
           </button>
         </div>
         <div className="modal-body">
-          <div style={{marginBottom: '10px'}}>To transfer this asset and title to another Solerus user, please enter their email below.</div>
-          <div style={{marginBottom: '10px'}}>All transfers are permanent, so please ensure you are transfering the correct product.</div>
+          <div style={{ marginBottom: '10px' }}>To transfer this asset and title to another Solerus user, please enter their email below.</div>
+          <div style={{ marginBottom: '10px' }}>All transfers are permanent, so please ensure you are transfering the correct product.</div>
           <input
-            style={{width: '80%'}}
+            style={{ width: '80%' }}
             value={form.email}
             onChange={e => setForm({ email: e.target.value })}
           />
@@ -33,9 +33,13 @@ const TransferModal = ({ form, setForm, email, id, addUserToState }) => (console
           <button
             type="button"
             className="btn btn-primary"
+            data-dismiss="modal"
             onClick={() => {
               axios.post(`http://localhost:8000/api${USERS_TRANSFER}`, { item: id, transferer: email, transferee: validator.normalizeEmail(form.email) })
-              .then(console.log)
+              .then(() => {
+                history.push('/dashboard')
+                removeItemFromState(id)
+              })
               .catch(console.log)
             }}
           >Transfer</button>
@@ -44,4 +48,4 @@ const TransferModal = ({ form, setForm, email, id, addUserToState }) => (console
     </div>
   </div>
 )
-export default connect(null, { addUserToState })(formState(TransferModal))
+export default connect(null, { removeItemFromState })(formState(TransferModal))

@@ -9,7 +9,7 @@ const userSchema = Schema({
   passwordResetToken: String,
   passwordResetExpires: Date,
 }, {
-  usePushEach: true
+  usePushEach: true,
 })
 
 export default mongoose.model('user', userSchema)

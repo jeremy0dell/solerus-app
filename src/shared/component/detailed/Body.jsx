@@ -34,7 +34,7 @@ const Body = ({ item, email, history }) =>
         <TransferButton text="Transfer" />
         <LostButton text="Report Lost" />
         {console.log('item is', item)}
-        <TransferModal history={history} email={email} id={item._id} />
+        <TransferModal history={history} email={email} id={item && item._id} />
       </div>
     </div>
   </div>

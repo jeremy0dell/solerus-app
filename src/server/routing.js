@@ -1,5 +1,7 @@
 // @flow
 
+import axios from 'axios'
+
 import {
   populateUser,
 } from './controller'
@@ -19,8 +21,11 @@ export default (app: Object) => {
   })
 
   app.get(DASHBOARD_PAGE_ROUTE, (req, res) => {
-    console.log('got', DASHBOARD_PAGE_ROUTE, 'sending', req.user, req.body)
-    res.send(renderApp(req.url, populateUser(req.user)))
+    console.log('got', DASHBOARD_PAGE_ROUTE, 'sending', req.user._id.toString())
+    axios.get(`http://localhost:8000/api/users/${req.user._id.toString()}`)
+    .then((response) => {
+      res.send(renderApp(req.url, populateUser(response.data)))
+    })
   })
 
   app.get('/500', () => {

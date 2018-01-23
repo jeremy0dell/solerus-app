@@ -1,4 +1,9 @@
-import { ADD_USER_TO_STATE } from '../action/authentication'
+import remove from 'lodash/remove'
+
+import {
+  ADD_USER_TO_STATE,
+  REMOVE_ITEM_FROM_STATE,
+} from '../action/authentication'
 
 const initialState = {
   isLoggedIn: false,
@@ -12,6 +17,10 @@ const authenticationReducer = (state = initialState, action) => {
         isLoggedIn: true,
         user: action.payload,
       }
+    case REMOVE_ITEM_FROM_STATE: //eslint-disable-line
+      const removed = remove(state.user.ownership, itm => itm._id.toString() === action.payload)
+      console.log('removed is', removed)
+      return state
     default:
       return state
   }
