@@ -1,7 +1,4 @@
 import React from 'react'
-import { withState } from 'recompose'
-import { connect } from 'react-redux'
-
 
 const AddProductModal = ({ user }) => (
   <div className="modal fade" id="addProductModal" tabIndex="-1" role="dialog" aria-labelledby="transferModalLabel" aria-hidden="true">
@@ -14,10 +11,11 @@ const AddProductModal = ({ user }) => (
           </button>
         </div>
         <div className="modal-body">
-          <div style={{marginBottom: '10px'}}>Provide your email address to the seller or retailer
-            to add a product's Solerus certificate to your inventory
+          <div style={{ marginBottom: '10px' }}>
+            Provide your email address to the seller or
+            retailer to add a product&apos;s Solerus certificate to your inventory.
           </div>
-          <div style={{marginBottom: '10px'}}>Email: <b>{user.email}</b></div>
+          <div style={{ marginBottom: '10px' }}>Email: <b>{user.email}</b></div>
         </div>
         <div className="modal-footer">
           <button type="button" className="btn btn-primary" data-dismiss="modal">Close</button>
