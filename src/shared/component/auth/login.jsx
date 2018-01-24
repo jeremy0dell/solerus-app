@@ -16,6 +16,7 @@ class Login extends Component {
       email: '',
       password: '',
       verify: false,
+      invalid: false,
     }
 
     this.onLoginInputChange = this.onLoginInputChange.bind(this)
@@ -49,18 +50,26 @@ class Login extends Component {
       addUserToState(res.data)
       history.push('/dashboard')
     })
-    .catch(console.log)
+    .catch((error) => {
+      this.setState({ invalid: true })
+    })
   }
 
   render() {
-    const { email, password, verify } = this.state
+    const { email, password, verify, invalid } = this.state
 
     let banner = null
 
     if (verify) {
       banner = (<div style={styles.bannerVerified}>
         Email confirmed. Sign in to access your account.
-        </div>)
+      </div>)
+    }
+
+    if (invalid) {
+      banner = (<div style={styles.bannerLoginError}>
+        Please ensure that your Email/Password are correct and your Email has been verified
+      </div>)
     }
 
     return (

@@ -78,6 +78,21 @@ const bannerError = {
   lineHeight: '30px',
 }
 
+const bannerLoginError = {
+  width: '400px',
+  height: '40px',
+  backgroundColor: '#D81159',
+  boxShadow: '0 2px 8px rgba(0,0,0,.50)',
+  display: 'flex',
+  flexDirection: 'column',
+  marginBottom: '10px',
+  fontSize: '15px',
+  fontFamily: 'Inter UI',
+  color: 'white',
+  textAlign: 'center',
+  lineHeight: '20px',
+}
+
 const withSignUp = {
   backgroundImage: 'url("/static/images/signup-blue.png")',
 }
@@ -96,4 +111,5 @@ export default {
   boxShadow,
   bannerVerified,
   bannerError,
+  bannerLoginError,
 }

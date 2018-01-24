@@ -8,7 +8,7 @@ import styles from '../styles/LandingStyles'
 
 
 const LandingPage = ({ history }) =>
-  <div>
+  <div style={{background: 'white'}}>
     <div id="container">
       {/* <img src="/static/images/iphonex-clay-mockup.png" alt="iPhone X" /> */}
       <div style={{ margin: '120px 0px 0px 100px' }}>

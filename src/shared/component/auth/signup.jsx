@@ -17,6 +17,8 @@ class SignUp extends Component {
       passLength: true,
       passMatch: true,
       emailValid: true,
+      invalid: false,
+      checkEmail: false,
     }
 
     this.onSignUpInputChange = this.onSignUpInputChange.bind(this)
@@ -42,6 +44,14 @@ class SignUp extends Component {
           const newUser = { full_name: `${firstname} ${lastname}`, email, password }
           axios.post('http://localhost:8000/api/users', newUser)
           .then(console.log)
+          .then((response) => {
+            // console.log("there was an error")
+            this.setState({ checkEmail: true })
+          })
+          .catch((error) => {
+            // console.log("there was an error")
+            this.setState({ invalid: true })
+          })
         } else {
           this.setState({ emailValid: false })
         }
@@ -68,6 +78,8 @@ class SignUp extends Component {
       passLength,
       passMatch,
       emailValid,
+      invalid,
+      checkEmail,
     } = this.state
 
     let banner = null
@@ -82,6 +94,14 @@ class SignUp extends Component {
 
     if (!emailValid) {
       banner = <div style={styles.bannerError}>Please use a valid email</div>
+    }
+
+    if (invalid) {
+      banner = <div style={styles.bannerError}>An account with this Email already exists</div>
+    }
+
+    if (checkEmail) {
+      banner = <div style={styles.bannerVerified}>Please check your Email to confirm your account</div>
     }
 
     return (
