@@ -8,7 +8,7 @@ import styles from '../styles/LandingStyles'
 
 
 const LandingPage = ({ history }) =>
-  <div style={{background: 'white'}}>
+  <div style={{ background: 'white' }}>
     <div id="container">
       {/* <img src="/static/images/iphonex-clay-mockup.png" alt="iPhone X" /> */}
       <div style={{ margin: '120px 0px 0px 100px' }}>
@@ -17,6 +17,12 @@ const LandingPage = ({ history }) =>
       </div>
       {/* <button className="btn" id="how">How it works ↓</button> */}
       <div style={styles.authButtons}>
+        <img //eslint-disable-line
+          onClick={() => history.push('/login')}
+          style={styles.authButton}
+          src="/static/images/retailer.png"
+          role="button"
+        />
         <img //eslint-disable-line
           onClick={() => history.push('/login')}
           style={styles.authButton}

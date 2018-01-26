@@ -24,6 +24,7 @@ export default (app: Object) => {
     console.log('got', DASHBOARD_PAGE_ROUTE, 'sending', req.user._id.toString())
     axios.get(`http://localhost:8000/api/users/${req.user._id.toString()}`)
     .then((response) => {
+      console.log('response is', response.data)
       res.send(renderApp(req.url, populateUser(response.data)))
     })
   })

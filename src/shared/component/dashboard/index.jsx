@@ -25,18 +25,17 @@ class DashboardContainer extends Component { // eslint-disable-line
       ), item])
       .then((res) => {
         const { data } = res[0]; const item = res[1] // gathering data from Promise
-        const joinedItem = assign(item, { product: data }) // making item with Product
-        this.setState({ items: [...this.state.items, joinedItem] }) // adding item to state
+        assign(item, { product: data }) // making item with Product
+        this.setState({}) // this is basically a hack
       }),
     )
   }
 
   render() {
     const { user } = this.props
-    const { items } = this.state
 
     return (
-      <Dashboard user={user} items={items} />
+      <Dashboard user={user} />
     )
   }
 }

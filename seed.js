@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import Product from './src/server/model/product'
 import Item from './src/server/model/item'
 import User from './src/server/model/user'
+import Manufacturer from './src/server/model/manufacturer'
 
 mongoose.connect('mongodb://localhost/solerus')
 
@@ -33,48 +34,61 @@ const userTwo = {
   isVerified: true,
 }
 
+const manu = {
+  name: 'Nordstrom',
+  email: 'nordstrom@gmail.com',
+  password: '$2a$10$is/Zb98l9UYf8wzYWMdk5epyn5hoXlwxg48Qjqpg9bkOgyQ0BFCw.', // 'qwerqwer'
+  isVerified: true,
+}
+
+const manuTwo = {
+  name: 'Rolex',
+  email: 'rolex@gmail.com',
+  password: '$2a$10$is/Zb98l9UYf8wzYWMdk5epyn5hoXlwxg48Qjqpg9bkOgyQ0BFCw.', // 'qwerqwer'
+  isVerified: true,
+}
+
 const promises = []
-const prom = []
 
 new User(user).save()
 .then(usr => Promise.all([new Product(products[0]).save(), usr]))
 .then((res) => {
-  const m = new Item({ serial: 0, product: res[0]._id, cora_id: `12304321` }).save()
+  const m = new Item({ serial: 0, product: res[0]._id, cora_id: '12304321' }).save()
   promises.push(m)
 
   return Promise.all(promises)
 })
 .then(usr => Promise.all([new Product(products[1]).save(), usr]))
 .then((res) => {
-  const m = new Item({ serial: 1, product: res[0]._id, cora_id: `12314321` }).save()
+  const m = new Item({ serial: 1, product: res[0]._id, cora_id: '12314321' }).save()
   promises.push(m)
 
   return Promise.all(promises)
 })
 .then(usr => Promise.all([new Product(products[2]).save(), usr]))
 .then((res) => {
-  const m = new Item({ serial: 2, product: res[0]._id, cora_id: `12324321` }).save()
+  const m = new Item({ serial: 2, product: res[0]._id, cora_id: '12324321' }).save()
   promises.push(m)
 
   return Promise.all(promises)
 })
 .then(usr => Promise.all([new Product(products[3]).save(), usr]))
 .then((res) => {
-  const m = new Item({ serial: 3, product: res[0]._id, cora_id: `12334321` }).save()
+  const m = new Item({ serial: 3, product: res[0]._id, cora_id: '12334321' }).save()
   promises.push(m)
 
   return Promise.all(promises)
 })
 .then(usr => Promise.all([new Product(products[4]).save(), usr]))
 .then((res) => {
-  const m = new Item({ serial: 4, product: res[0]._id, cora_id: `12344321` }).save()
+  const m = new Item({ serial: 4, product: res[0]._id, cora_id: '12344321' }).save()
   promises.push(m)
 
   return Promise.all(promises)
 })
 .then(usr => Promise.all([new Product(products[5]).save(), usr]))
 .then((res) => {
-  const m = new Item({ serial: 5, product: res[0]._id, cora_id: `12354321` }).save()
+  const m = new Item({ serial: 5, product: res[0]._id, cora_id: '12354321' }).save()
   promises.push(m)
 
   return Promise.all(promises)
@@ -86,6 +100,18 @@ new User(user).save()
   ).exec()
 })
 .then(new User(userTwo).save())
+.then(new Manufacturer(manu).save())
+.then(new Manufacturer(manuTwo).save())
+.then(() => {
+  const Rolex = Manufacturer.findOne({ name: 'Rolex' })
+  const watch = Product.findOne({ name: 'Rolex Submariner' })
+  return Promise.all([Rolex, watch])
+})
+.then(([RolexRes, watchRes]) => {
+  RolexRes.productLines.push(watchRes)
+  RolexRes.markModified('ownership')
+  return RolexRes.save()
+})
 .then(() => mongoose.disconnect())
 .catch(console.log)
 // Make fake user

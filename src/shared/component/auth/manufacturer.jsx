@@ -7,7 +7,7 @@ import { addUserToState } from '../../action/authentication'
 
 import styles from '../styles/AuthStyles'
 
-class Login extends Component {
+class ManufacturerLogin extends Component {
 
   constructor(props) {
     super(props)
@@ -44,7 +44,7 @@ class Login extends Component {
     e.preventDefault()
     const { email, password } = this.state
     const loginInfo = { email, password }
-    axios.post('http://localhost:8000/auth/auth', loginInfo)
+    axios.post('http://localhost:8000/auth/authManufacturer', loginInfo)
     .then((res) => {
       console.log('res.data is', res.data, 'adduser is', addUserToState)
       addUserToState(res.data)
@@ -91,4 +91,4 @@ class Login extends Component {
   }
 }
 
-export default withRouter(connect(null, { addUserToState })(Login))
+export default withRouter(connect(null, { addUserToState })(ManufacturerLogin))

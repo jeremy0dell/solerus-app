@@ -19,6 +19,11 @@ const Nav = ({ user }) =>
 
       <SearchBar
         className="col-md-offset-5"
+        dataSource={user.ownership.map(item => ({
+          id: item._id.toString(),
+          name: item.product.name,
+        }))}
+        dataSourceConfig={{ text: 'name', value: 'id' }}
         onChange={() => console.log('onChange')}
         onRequestSearch={() => console.log('onRequestSearch')}
         style={styles.searchBar}

@@ -44,11 +44,11 @@ class SignUp extends Component {
           const newUser = { full_name: `${firstname} ${lastname}`, email, password }
           axios.post('http://localhost:8000/api/users', newUser)
           .then(console.log)
-          .then((response) => {
+          .then(() => {
             // console.log("there was an error")
             this.setState({ checkEmail: true })
           })
-          .catch((error) => {
+          .catch(() => {
             // console.log("there was an error")
             this.setState({ invalid: true })
           })
@@ -101,7 +101,12 @@ class SignUp extends Component {
     }
 
     if (checkEmail) {
-      banner = <div style={styles.bannerVerified}>Please check your Email to confirm your account</div>
+      banner =
+        (<div
+          style={styles.bannerVerified}
+        >
+          Please check your Email to confirm your account
+        </div>)
     }
 
     return (

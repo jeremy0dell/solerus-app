@@ -7,6 +7,7 @@ import Helmet from 'react-helmet'
 
 import LandingPage from './component/page/landing'
 import Login from './component/auth/login'
+import ManufacturerLogin from './component/auth/manufacturer'
 import SignUp from './component/auth/signup'
 import Dashboard from './component/dashboard'
 import Detailed from './component/detailed'
@@ -15,6 +16,7 @@ import Footer from './component/footer'
 // import Nav from './component/nav'
 import NotFoundPage from './component/page/not-found'
 import { APP_NAME } from './config'
+
 import {
   HOME_PAGE_ROUTE,
   LOGIN_PAGE_ROUTE,
@@ -23,6 +25,11 @@ import {
   DETAIL_PAGE_ROUTE,
 } from './routes'
 
+import {
+  MANUFACTURER_LOGIN_ROUTE,
+  MANUFACTURER_DASHBOARD_ROUTE,
+} from './manufacturerRoutes'
+
 const App = () =>
   <div>
     <Helmet titleTemplate={`%s | ${APP_NAME}`} defaultTitle={APP_NAME} />
@@ -30,10 +37,15 @@ const App = () =>
       {/* This is for anchoring the footer to the bootom of the page */}
       <Switch>
         <Route exact path={HOME_PAGE_ROUTE} render={() => <LandingPage />} />
+
         <Route exact path={SIGNUP_PAGE_ROUTE} render={() => <SignUp />} />
         <Route exact path={LOGIN_PAGE_ROUTE} render={() => <Login />} />
+
         <Route exact path={DASHBOARD_PAGE_ROUTE} render={() => <Dashboard />} />
         <Route exact path={DETAIL_PAGE_ROUTE} render={() => <Detailed />} />
+
+        <Route exact path={MANUFACTURER_LOGIN_ROUTE} render={() => <ManufacturerLogin />} />
+        <Route exact path={MANUFACTURER_DASHBOARD_ROUTE} render={() => <Dashboard />} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>

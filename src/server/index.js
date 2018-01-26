@@ -17,6 +17,8 @@ import './db'
 
 import authenticationRoute from './routes/authentication'
 import usersRoute from './routes/users'
+import manufacturerAuthRoute from './routes/manufacturer/authentication'
+import manufacturersRoute from './routes/manufacturer'
 import verificationRoute from './routes/verify'
 import productsRoute from './routes/products'
 import routing from './routing'
@@ -43,9 +45,10 @@ app.use(passport.session())
 app.use(STATIC_PATH, express.static('dist'))
 app.use(STATIC_PATH, express.static('public'))
 
-app.use('/auth', authenticationRoute)
+app.use('/auth', authenticationRoute, manufacturerAuthRoute)
 app.use('/verify', verificationRoute)
 app.use('/api', usersRoute, productsRoute)
+app.use('/manu', manufacturersRoute)
 routing(app)
 
 /* eslint-disable no-console,no-unused-expressions,no-unused-vars */
