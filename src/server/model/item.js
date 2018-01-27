@@ -10,6 +10,15 @@ const itemSchema = Schema({
 
   // unique ID from the blockchain
   cora_id: { type: Number, required: true, index: { unique: true } },
+
+  /* Maybe be unique schema
+    {
+      owner_id: ObjectId,
+      Date_acquired: new Date,
+    }
+  */
+
+  history: [{}],
 })
 
 export default mongoose.model('item', itemSchema)

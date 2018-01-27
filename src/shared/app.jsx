@@ -1,5 +1,3 @@
-// @flow
-
 import React from 'react'
 import { Switch } from 'react-router'
 import { Route } from 'react-router-dom'
@@ -8,13 +6,13 @@ import Helmet from 'react-helmet'
 import LandingPage from './component/page/landing'
 import Login from './component/auth/login'
 import ManufacturerLogin from './component/auth/manufacturer'
+import ManufacturerDashboard from './component/manufacturer/'
 import SignUp from './component/auth/signup'
 import Dashboard from './component/dashboard'
 import Detailed from './component/detailed'
-// import HomePage from './component/page/home'
 import Footer from './component/footer'
-// import Nav from './component/nav'
 import NotFoundPage from './component/page/not-found'
+
 import { APP_NAME } from './config'
 
 import {
@@ -27,7 +25,7 @@ import {
 
 import {
   MANUFACTURER_LOGIN_ROUTE,
-  MANUFACTURER_DASHBOARD_ROUTE,
+  MANUFACTURER_INDEX,
 } from './manufacturerRoutes'
 
 const App = () =>
@@ -45,7 +43,8 @@ const App = () =>
         <Route exact path={DETAIL_PAGE_ROUTE} render={() => <Detailed />} />
 
         <Route exact path={MANUFACTURER_LOGIN_ROUTE} render={() => <ManufacturerLogin />} />
-        <Route exact path={MANUFACTURER_DASHBOARD_ROUTE} render={() => <Dashboard />} />
+        <Route path={MANUFACTURER_INDEX} render={() => <ManufacturerDashboard />} />
+
         <Route component={NotFoundPage} />
       </Switch>
     </div>

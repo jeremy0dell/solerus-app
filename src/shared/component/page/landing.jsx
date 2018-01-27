@@ -18,7 +18,7 @@ const LandingPage = ({ history }) =>
       {/* <button className="btn" id="how">How it works ↓</button> */}
       <div style={styles.authButtons}>
         <img //eslint-disable-line
-          onClick={() => history.push('/login')}
+          onClick={() => history.push('/manufacturer/login')}
           style={styles.authButton}
           src="/static/images/retailer.png"
           role="button"

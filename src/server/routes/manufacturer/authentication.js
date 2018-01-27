@@ -8,9 +8,7 @@ import omit from 'lodash/omit'
 import Manufacturer from '../../model/manufacturer'
 
 import {
-  AUTH_USER,
-  // AUTH_ME,
-  // AUTH_LOGOUT,
+  AUTH_MANUFACTURER,
 } from '../../../shared/manufacturerRoutes'
 
 const LocalStrategy = passportLocal.Strategy
@@ -25,7 +23,7 @@ passport.use(new LocalStrategy(
         return done(err)
       }
       if (!user) {
-        console.log('got !user') // eslint-disable-line
+        console.log('got !user AHHHAH', email, password) // eslint-disable-line
         return done(null, false)
       }
       if (!bcrypt.compareSync(password, user.password)) {
@@ -51,7 +49,7 @@ passport.deserializeUser((user, done) => {
 
 const router = express.Router()
 
-router.post(AUTH_USER, // /authManufacturer
+router.post(AUTH_MANUFACTURER, // /authManufacturer
   passport.authenticate('local', { failureRedirect: '/login' }),
   (req, res) => {
     const { user } = req

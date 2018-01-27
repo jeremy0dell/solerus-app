@@ -8,9 +8,10 @@ import {
 
 import {
   HOME_PAGE_ROUTE,
-  // LOGIN_PAGE_ROUTE,
   DASHBOARD_PAGE_ROUTE,
 } from '../shared/routes'
+
+import { MANUFACTURER_DASHBOARD_ROUTE } from '../shared/manufacturerRoutes'
 
 import renderApp from './render-app'
 
@@ -23,6 +24,15 @@ export default (app: Object) => {
   app.get(DASHBOARD_PAGE_ROUTE, (req, res) => {
     console.log('got', DASHBOARD_PAGE_ROUTE, 'sending', req.user._id.toString())
     axios.get(`http://localhost:8000/api/users/${req.user._id.toString()}`)
+    .then((response) => {
+      console.log('response is', response.data)
+      res.send(renderApp(req.url, populateUser(response.data)))
+    })
+  })
+
+  app.get(MANUFACTURER_DASHBOARD_ROUTE, (req, res) => {
+    console.log('got', MANUFACTURER_DASHBOARD_ROUTE, 'sending', req.user._id.toString())
+    axios.get(`http://localhost:8000/manu/users/${req.user._id.toString()}`)
     .then((response) => {
       console.log('response is', response.data)
       res.send(renderApp(req.url, populateUser(response.data)))

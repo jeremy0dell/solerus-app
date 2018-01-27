@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 
 import { addUserToState } from '../../action/authentication'
+import { MANUFACTURER_INDEX } from '../../manufacturerRoutes'
 
 import styles from '../styles/AuthStyles'
 
@@ -48,7 +49,7 @@ class ManufacturerLogin extends Component {
     .then((res) => {
       console.log('res.data is', res.data, 'adduser is', addUserToState)
       addUserToState(res.data)
-      history.push('/dashboard')
+      history.push(MANUFACTURER_INDEX)
     })
     .catch(() => {
       this.setState({ invalid: true })
