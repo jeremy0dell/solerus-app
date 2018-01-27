@@ -26,7 +26,6 @@ class SignUp extends Component {
   }
 
   onSignUpInputChange(e) {
-    console.log(this.state.password, this.state.passwordVerify)
     this.setState({
       [e.target.name]: e.target.value,
     })

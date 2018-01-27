@@ -31,8 +31,7 @@ class Login extends Component {
     }
   }
 
-  onLoginInputChange(e, v) {
-    console.log(e.target.value, e.target.name, v, this)
+  onLoginInputChange(e) {
     this.setState({
       [e.target.name]: e.target.value,
     })

@@ -21,6 +21,7 @@
     "no-unexpected-multiline": 2,
     "compat/compat": 2,
     "react/prop-types": [0],
-    "no-shadow": "off"
+    "no-shadow": "off",
+    "import/prefer-default-export": 0
   }
 }

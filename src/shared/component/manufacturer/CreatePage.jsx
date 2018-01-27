@@ -5,10 +5,10 @@ import styles from '../styles/ManufacturerStyles/CreateStyles'
 import CreateCertificates from './CreateCertificates'
 import CreateProduct from './CreateProduct'
 
-const CreatePage = () =>
+const CreatePage = ({ user }) =>
   <div style={styles.container}>
-    <CreateCertificates />
-    <CreateProduct />
+    <CreateProduct user={user} />
+    <CreateCertificates user={user} />
   </div>
 
 export default CreatePage

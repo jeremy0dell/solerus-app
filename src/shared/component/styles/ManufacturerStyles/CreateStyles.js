@@ -5,4 +5,11 @@ const container = {
   minHeight: 500,
 }
 
-export default { container }
+const dropzone = {
+  width: 250,
+  border: '1px dotted black',
+  textAlign: 'center',
+  verticalAlign: 'middle',
+}
+
+export default { container, dropzone }
