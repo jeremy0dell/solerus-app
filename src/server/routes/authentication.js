@@ -15,7 +15,7 @@ import {
 
 const LocalStrategy = passportLocal.Strategy
 
-passport.use(new LocalStrategy(
+passport.use('user', new LocalStrategy(
   { usernameField: 'email' }, // we are using email as our username
   (email, password, done) => {
     const emailSan = validator.normalizeEmail(email)
@@ -52,7 +52,7 @@ passport.deserializeUser((user, done) => {
 const router = express.Router()
 
 router.post(AUTH_USER,
-  passport.authenticate('local', { failureRedirect: '/login' }),
+  passport.authenticate('user', { failureRedirect: '/login' }),
   (req, res) => {
     const { user } = req
     console.log('after auth req.user is', req.user)
