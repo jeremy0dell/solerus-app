@@ -3,7 +3,13 @@ const body = {
 }
 
 const title = {
-  marginLeft: 'calc(50% - 56px)',
+  marginLeft: 'calc(50% - 220px)',
+  marginTop: '30px',
 }
 
-export default { body, title }
+const logo = {
+  height: 35,
+  margin: '30px 0px 30px 30px',
+}
+
+export default { body, title, logo }

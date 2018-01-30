@@ -16,17 +16,19 @@ const Button = ({ text, to }) =>
 
 const Body = () =>
   <div style={styles.container}>
-    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
       <Button
         to={MANUFACTURER_CREATE_PAGE}
         text="Create Solerus Certificates"
       />
+    </div>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
       <Button
         to={MANUFACTURER_TRANSFER_PAGE}
         text="Transfer Solerus Certificates"
       />
     </div>
-    <div>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
       <Button
         to="/"
         text="Inventory Analytics"
