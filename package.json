@@ -70,6 +70,7 @@
     "socket.io": "^1.7.3",
     "socket.io-client": "^1.7.3",
     "tether": "^1.4.0",
+    "uuid": "^3.2.1",
     "validator": "^9.2.0"
   },
   "devDependencies": {

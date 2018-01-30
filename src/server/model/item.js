@@ -9,7 +9,7 @@ const itemSchema = Schema({
   product: { type: Schema.Types.ObjectId, required: true },
 
   // unique ID from the blockchain
-  cora_id: { type: Number, required: true, index: { unique: true } },
+  cora_id: { type: String, required: true, index: { unique: true } },
 
   /* Maybe be unique schema
     {

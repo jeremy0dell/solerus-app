@@ -1,6 +1,7 @@
 export const AUTH_MANUFACTURER = '/authManufacturer'
 export const AUTH_MANUFACTURER_LOGOUT = '/logoutManufacturer'
 export const MANUFACTURER_UPLOAD = '/upload'
+export const MANUFACTURER_CREATE_CERTS = '/createCertificates'
 
 export const MANUFACTURER_SHOW = '/manufacturer'
 export const MANUFACTURER_INDEX = '/manufacturer'
