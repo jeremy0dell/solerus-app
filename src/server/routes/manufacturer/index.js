@@ -26,8 +26,6 @@ router.get(MANUFACTURER_SHOW, (req, res, next) => {
 })
 
 router.post(MANUFACTURER_CREATE_CERTS, (req, res) => {
-  console.log('body is', req.body)
-
   createCertificates(req.body)
 
   res.send(req.body)
@@ -43,7 +41,6 @@ router.post(MANUFACTURER_CREATE_CERTS, (req, res) => {
     size: 55772 } ]
 */
 router.post(MANUFACTURER_UPLOAD, upload.any(), (req, res) => {
-  console.log('req.body is', req.body)
   const { name, retailer, description } = req.body
 
   const productObj = { image: req.files[0].path, retailer, name, description }
