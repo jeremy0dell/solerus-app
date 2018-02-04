@@ -6,11 +6,13 @@ import { Route } from 'react-router-dom'
 import {
   MANUFACTURER_INDEX,
   MANUFACTURER_CREATE_PAGE,
+  MANUFACTURER_TRANSFER_PAGE,
 } from '../../../shared/manufacturerRoutes'
 
 import Nav from './Nav'
 import Dashboard from './Dashboard'
-import CreatePage from './CreatePage'
+import CreatePage from './Create'
+import TransferPage from './Transfer/'
 
 const ManufacturerContainer = ({ user }) =>
   <div>
@@ -19,6 +21,7 @@ const ManufacturerContainer = ({ user }) =>
     <Switch>
       <Route exact path={MANUFACTURER_INDEX} render={() => <Dashboard user={user} />} />
       <Route exact path={MANUFACTURER_CREATE_PAGE} render={() => <CreatePage user={user} />} />
+      <Route exact path={MANUFACTURER_TRANSFER_PAGE} render={() => <TransferPage user={user} />} />
     </Switch>
   </div>
 

@@ -10,6 +10,7 @@ const toRender = prop => [
   { Manufacturer: prop.product.retailer },
   { 'Item Summary': prop.product.description },
   { 'Serial Number': prop.serial },
+  { 'Date Created': new Date(prop.dateCreated).toLocaleDateString().replace(/\//g, '-') },
 ]
 
 const ItemInfo = ({ item }) =>

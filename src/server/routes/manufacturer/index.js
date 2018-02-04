@@ -5,10 +5,12 @@ import Manufacturer from '../../model/manufacturer'
 
 import createProductLine from '../../util/createProductLine'
 import createCertificates from '../../util/createCertificates'
+import manufacturerTransfer from '../../util/manufacturerTransfer'
 
 import {
   MANUFACTURER_SHOW,
   MANUFACTURER_UPLOAD,
+  MANUFACTURER_TRANSFER,
   MANUFACTURER_CREATE_CERTS,
 } from '../../../shared/manufacturerRoutes'
 
@@ -23,6 +25,12 @@ router.get(MANUFACTURER_SHOW, (req, res, next) => {
     .findOne({ _id: req.params.id })
     .then(data => res.json(data))
     .catch(next)
+})
+
+router.post(MANUFACTURER_TRANSFER, (req, res, next) => {
+  manufacturerTransfer(req.body)
+  .then(res.send(req.body))
+  .catch(next)
 })
 
 router.post(MANUFACTURER_CREATE_CERTS, (req, res) => {

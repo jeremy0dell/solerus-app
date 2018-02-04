@@ -3,9 +3,10 @@ import { compose } from 'recompose'
 import DropDownMenu from 'material-ui/DropDownMenu'
 import MenuItem from 'material-ui/MenuItem'
 
-import body from '../styles/ManufacturerStyles/BodyStyles'
+import body from '../../styles/ManufacturerStyles/BodyStyles'
 
-import { formData, getProducts, createCertificates } from '../../util/form'
+import { formData, createCertificates } from '../../../util/form'
+import { getProducts } from '../../../util/getters'
 
 
 const CreateCertificates = ({ user, form, handleChange, handleProductDropdown, products }) => (console.log(form, products), // eslint-disable-line

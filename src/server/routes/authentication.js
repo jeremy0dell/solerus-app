@@ -55,7 +55,6 @@ router.post(AUTH_USER,
   passport.authenticate('user', { failureRedirect: '/login' }),
   (req, res) => {
     const { user } = req
-    console.log('after auth req.user is', req.user)
     res.json(omit(user.toObject(), 'password'))
   },
 )

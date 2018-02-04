@@ -1,35 +1,11 @@
-import { compose, lifecycle, withState, withHandlers } from 'recompose'
+import { compose, withState, withHandlers } from 'recompose'
 import axios from 'axios'
+import { includes, remove } from 'lodash'
 
 import {
   MANUFACTURER_UPLOAD,
   MANUFACTURER_CREATE_CERTS,
 } from '../manufacturerRoutes'
-import { PRODUCT_INDEX } from '../routes'
-
-export const getProducts = compose(
-  withState('products', 'updateState', { list: [] }),
-  withHandlers({
-    setProduct:
-    props =>
-    product =>
-    props.updateState({ list: [...props.products.list, product] }),
-  }),
-  lifecycle({
-    componentDidMount() {
-      const { user, setProduct } = this.props
-
-      Promise.all(user.productLines.map(prod => axios.get(`/api${PRODUCT_INDEX}/${prod}`)))
-      .then((res) => {
-        console.log('res is', res)
-        res.forEach((prod) => {
-          console.log('about to set this:', prod.data)
-          setProduct(prod.data)
-        })
-      })
-    },
-  }),
-)
 
 /*
 component method handleChange is a function that takes props, and returns a
@@ -47,6 +23,16 @@ export const formData = initialValues => compose(
     props =>
     (event, idx, value) =>
     props.updateState({ ...props.form, product: value }),
+    handleCheckboxEvent:
+    props =>
+    row =>
+    props.updateState({
+      ...props.form,
+      itemsSelected:
+      includes(props.form.itemsSelected, row) ? // Is the selected choice on state?
+      remove(props.form.itemsSelected, n => n !== row) :
+      [...props.form.itemsSelected, row], // If not, add it to the state
+    }),
     handleUpload:
     props =>
     files =>

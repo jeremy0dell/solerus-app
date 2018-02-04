@@ -11,7 +11,11 @@ import {
   DASHBOARD_PAGE_ROUTE,
 } from '../shared/routes'
 
-import { MANUFACTURER_DASHBOARD_ROUTE } from '../shared/manufacturerRoutes'
+import {
+  MANUFACTURER_INDEX,
+  MANUFACTURER_LOGIN_ROUTE,
+  MANUFACTURER_DASHBOARD_ROUTE,
+} from '../shared/manufacturerRoutes'
 
 import renderApp from './render-app'
 
@@ -30,9 +34,28 @@ export default (app: Object) => {
     })
   })
 
+  app.get(MANUFACTURER_LOGIN_ROUTE, (req, res) => {
+    console.log('got1', MANUFACTURER_DASHBOARD_ROUTE, 'sending', req.user)
+    // axios.get(`http://localhost:8000/manu/users/${req.user._id.toString()}`)
+    // .then((response) => {
+    //   console.log('response is', response.data)
+    //   res.send(renderApp(req.url, populateUser(response.data)))
+    // })
+    res.send(renderApp(req.url, populateUser(req.user)))
+  })
+
   app.get(MANUFACTURER_DASHBOARD_ROUTE, (req, res) => {
-    console.log('got', MANUFACTURER_DASHBOARD_ROUTE, 'sending', req.user._id.toString())
-    axios.get(`http://localhost:8000/manu/users/${req.user._id.toString()}`)
+    console.log('got2', MANUFACTURER_DASHBOARD_ROUTE, 'sending', req.user._id.toString())
+    axios.get(`http://localhost:8000/manu/${MANUFACTURER_INDEX}/${req.user._id.toString()}`)
+    .then((response) => {
+      console.log('response is', response.data)
+      res.send(renderApp(req.url, populateUser(response.data)))
+    })
+  })
+
+  app.get(`${MANUFACTURER_INDEX}*`, (req, res) => {
+    console.log('got3', MANUFACTURER_DASHBOARD_ROUTE, 'sending', req.user._id.toString())
+    axios.get(`http://localhost:8000/manu/${MANUFACTURER_INDEX}/${req.user._id.toString()}`)
     .then((response) => {
       console.log('response is', response.data)
       res.send(renderApp(req.url, populateUser(response.data)))

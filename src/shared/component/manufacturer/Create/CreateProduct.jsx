@@ -2,9 +2,9 @@ import React from 'react'
 import Dropzone from 'react-dropzone'
 // import { compose } from 'recompose'
 
-import { formData, uploadDocument } from '../../util/form'
-import body from '../styles/ManufacturerStyles/BodyStyles'
-import styles from '../styles/ManufacturerStyles/CreateStyles'
+import { formData, uploadDocument } from '../../../util/form'
+import body from '../../styles/ManufacturerStyles/BodyStyles'
+import styles from '../../styles/ManufacturerStyles/CreateStyles'
 
 const CreateProduct = ({ user, form, handleChange, handleUpload }) => (console.log(user, form), // eslint-disable-line
   <div>

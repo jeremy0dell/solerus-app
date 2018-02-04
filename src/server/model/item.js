@@ -17,8 +17,9 @@ const itemSchema = Schema({
       Date_acquired: new Date,
     }
   */
+  dateCreated: { type: Date, required: true, default: Date.now },
 
-  history: [{}],
+  history: [{ type: Schema.Types.ObjectId, ref: 'Transfer' }],
 })
 
 export default mongoose.model('item', itemSchema)
