@@ -4,10 +4,14 @@ import multer from 'multer'
 import Manufacturer from '../../model/manufacturer'
 
 import createProductLine from '../../util/createProductLine'
+import createCertificates from '../../util/createCertificates'
+import manufacturerTransfer from '../../util/manufacturerTransfer'
 
 import {
   MANUFACTURER_SHOW,
   MANUFACTURER_UPLOAD,
+  MANUFACTURER_TRANSFER,
+  MANUFACTURER_CREATE_CERTS,
 } from '../../../shared/manufacturerRoutes'
 
 const upload = multer({ dest: './public/uploads/' })
@@ -23,7 +27,17 @@ router.get(MANUFACTURER_SHOW, (req, res, next) => {
     .catch(next)
 })
 
+router.post(MANUFACTURER_TRANSFER, (req, res, next) => {
+  manufacturerTransfer(req.body)
+  .then(res.send(req.body))
+  .catch(next)
+})
 
+router.post(MANUFACTURER_CREATE_CERTS, (req, res) => {
+  createCertificates(req.body)
+
+  res.send(req.body)
+})
 /* files looks like:
 [ { fieldname: 'file',
     originalname: 'picture.jpg',
@@ -35,7 +49,6 @@ router.get(MANUFACTURER_SHOW, (req, res, next) => {
     size: 55772 } ]
 */
 router.post(MANUFACTURER_UPLOAD, upload.any(), (req, res) => {
-  console.log('req.body is', req.body)
   const { name, retailer, description } = req.body
 
   const productObj = { image: req.files[0].path, retailer, name, description }

@@ -53,7 +53,6 @@ router.post(AUTH_MANUFACTURER, // /authManufacturer
   passport.authenticate('manufacturer', { failureRedirect: '/login' }),
   (req, res) => {
     const { user } = req
-    console.log('after auth req.user is', req.user)
     res.json(omit(user.toObject(), 'password'))
   },
 )
