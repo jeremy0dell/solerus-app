@@ -21,6 +21,7 @@ import manufacturerAuthRoute from './routes/manufacturer/authentication'
 import manufacturersRoute from './routes/manufacturer'
 import verificationRoute from './routes/verify'
 import productsRoute from './routes/products'
+import transfersRoute from './routes/transfers'
 import routing from './routing'
 
 import { WEB_PORT, STATIC_PATH, isProd } from '../shared/config'
@@ -47,7 +48,7 @@ app.use(STATIC_PATH, express.static('public'))
 
 app.use('/auth', authenticationRoute, manufacturerAuthRoute)
 app.use('/verify', verificationRoute)
-app.use('/api', usersRoute, productsRoute)
+app.use('/api', usersRoute, productsRoute, transfersRoute)
 app.use('/manu', manufacturersRoute)
 routing(app)
 

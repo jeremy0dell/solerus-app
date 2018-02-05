@@ -14,6 +14,9 @@ export const USERS_DELETE = '/users/:id'
 export const PRODUCT_INDEX = '/products'
 export const PRODUCT_SHOW = '/products/:id'
 
+export const TRANSFER_INDEX = '/transfers'
+export const TRANSFER_SHOW = '/transfers/:id'
+
 export const ITEM_INDEX = '/items'
 export const ITEM_SHOW = '/items/:id'
 
