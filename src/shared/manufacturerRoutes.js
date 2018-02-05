@@ -9,5 +9,6 @@ export const MANUFACTURER_TRANSFER = '/manufacturer/transfer'
 
 export const MANUFACTURER_LOGIN_ROUTE = '/manufacturer/login'
 export const MANUFACTURER_DASHBOARD_ROUTE = '/manufacturer/dashboard'
-export const MANUFACTURER_CREATE_PAGE = '/manufacturer/create'
+export const MANUFACTURER_CREATE_CERTIFICATES = '/manufacturer/create-certificates'
+export const MANUFACTURER_CREATE_PRODUCT = '/manufacturer/create-product'
 export const MANUFACTURER_TRANSFER_PAGE = '/manufacturer/transfer'

@@ -6,7 +6,8 @@ import styles from '../styles/ManufacturerStyles/BodyStyles'
 
 import {
   MANUFACTURER_TRANSFER_PAGE,
-  MANUFACTURER_CREATE_PAGE,
+  MANUFACTURER_CREATE_CERTIFICATES,
+  MANUFACTURER_CREATE_PRODUCT,
 } from '../../../shared/manufacturerRoutes'
 // Two alligned buttons
 // "Create Solerus Certificates" and "Transfer Solerus Certificates"
@@ -14,26 +15,24 @@ import {
 const Button = ({ text, to }) =>
   <Link to={to}><div style={styles.button}>{text}</div></Link>
 
+const routes = [
+  ['Transfer Solerus Certificates', MANUFACTURER_TRANSFER_PAGE],
+  ['Create Solerus Certificates', MANUFACTURER_CREATE_CERTIFICATES],
+  ['Create Solerus Products', MANUFACTURER_CREATE_PRODUCT],
+  ['Inventory Analytics', '/'],
+]
+
 const Body = () =>
   <div style={styles.container}>
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <Button
-        to={MANUFACTURER_CREATE_PAGE}
-        text="Create Solerus Certificates"
-      />
-    </div>
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <Button
-        to={MANUFACTURER_TRANSFER_PAGE}
-        text="Transfer Solerus Certificates"
-      />
-    </div>
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <Button
-        to="/"
-        text="Inventory Analytics"
-      />
-    </div>
+    {
+      routes.map(route =>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Button
+            to={route[1]}
+            text={route[0]}
+          />
+        </div>)
+    }
   </div>
 
 export default Body
