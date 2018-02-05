@@ -9,7 +9,7 @@ const Nav = () =>
       src="/static/images/LogoHeaderNoIcon.png"
       alt="Solerus logo"
     />
-    <div style={styles.title}>Manufacturer Dashboard</div>
+    <div style={styles.title}>Retailer Dashboard</div>
   </div>
 
 export default Nav

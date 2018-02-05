@@ -4,9 +4,11 @@ import MenuItem from 'material-ui/MenuItem'
 
 // Select product
 const Dropdown = ({ form, products, handleProductDropdown }) =>
-  <div>
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+
+  <div style={{display: 'flex', flexDirection: 'row', lineHeight: '3.6'}}>
     {console.log('products is', products, 'form is', form)}
-    This is Dropdown
+    <p style={{marginRight: '0px', marginBottom: '0px', bottom: '0px',}}> Select Product Line:</p>
     <DropDownMenu name="product" value={form.product} onChange={handleProductDropdown}>
       {
         products.list.map((product, idx) => <MenuItem
@@ -17,6 +19,7 @@ const Dropdown = ({ form, products, handleProductDropdown }) =>
         />)
       }
     </DropDownMenu>
+  </div>
   </div>
 
 export default Dropdown

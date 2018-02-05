@@ -3,7 +3,7 @@ const body = {
 }
 
 const title = {
-  marginLeft: 'calc(50% - 220px)',
+  marginLeft: 'calc(50% - 210px)',
   marginTop: '30px',
 }
 

@@ -3,21 +3,29 @@ import { connect } from 'react-redux'
 import { compose } from 'recompose'
 import { withRouter } from 'react-router-dom'
 import axios from 'axios'
-import RaisedButton from 'material-ui/RaisedButton'
 import includes from 'lodash/includes'
 
 import Dropdown from './Dropdown'
 import Table from './Table'
 import Input from './EmailInput'
 
+import styles from '../../styles/ManufacturerStyles/CreateStyles'
+import body from '../../styles/ManufacturerStyles/BodyStyles'
+
 import { removeItemFromState } from '../../../action/authentication'
 import { formData } from '../../../util/form'
 import { getProducts } from '../../../util/getters'
 import { MANUFACTURER_TRANSFER } from '../../../manufacturerRoutes'
+import { Link } from 'react-router-dom'
 // pass product s and changeProduct into dropdown
 // pass product and items and changeform into table
 // pass email and changeform into input
 // probably keep the actual button in this component for simplicity
+
+const Button = () =>
+  <Link to="/manufacturer">
+    <button style={styles.arrowButton}>←</button>
+  </Link>
 
 const ManufacturerTransfer = ({
   user,
@@ -31,6 +39,10 @@ const ManufacturerTransfer = ({
   removeItemFromState,
 }) =>
   <div>
+    <Button />
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+    <div style={styles.boxShadowTransfer}>
+    <h5> Transfer Solerus Certificates </h5>
     <Dropdown form={form} products={products} handleProductDropdown={handleProductDropdown} />
     <Table
       user={user}
@@ -44,9 +56,8 @@ const ManufacturerTransfer = ({
       updateState={updateState}
       handleChange={handleChange}
     />
-    <RaisedButton
-      label="Full width"
-      fullWidth
+    <div // eslint-disable-line
+      style={body.transferForm}
       onClick={() => {
         const submitObj = {
           user,
@@ -61,7 +72,10 @@ const ManufacturerTransfer = ({
           history.push('/manufacturer')
         })
       }}
-    />
+    >
+  </div>
+  </div>
+  </div>
   </div>
 
 export default compose(

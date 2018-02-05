@@ -21,8 +21,8 @@ const ItemsTable = ({ user, itemsSelected, selectedProduct, products, handleChec
     >
       <TableHeader>
         <TableRow>
-          <TableHeaderColumn tooltip="The SN">ID</TableHeaderColumn>
-          <TableHeaderColumn tooltip="The Solerus IS">Solerus ID</TableHeaderColumn>
+          <TableHeaderColumn tooltip="Item Serial Number">Serial Number</TableHeaderColumn>
+          <TableHeaderColumn tooltip="Solerus Unique ID">Solerus ID</TableHeaderColumn>
         </TableRow>
       </TableHeader>
       <TableBody deselectOnClickaway={false} >
