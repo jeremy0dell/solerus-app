@@ -22,11 +22,12 @@ const mailer = nodemailer.createTransport(sgTransport(options))
 
 const router = express.Router()
 
-router.post(USERS_TRANSFER, (req, res) => {
+router.post(USERS_TRANSFER, (req, res, next) => {
   const { item, transferer, transferee } = req.body
 
   transferItem(item, transferer, transferee)
   .then((response) => { res.send(response) })
+  .catch(next)
 })
 
 router.get(USERS_SHOW, (req, res, next) => {

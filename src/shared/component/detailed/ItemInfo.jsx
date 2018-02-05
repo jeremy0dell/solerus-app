@@ -13,9 +13,10 @@ const toRender = prop => [
   { 'Date Created': new Date(prop.dateCreated).toLocaleDateString().replace(/\//g, '-') },
 ]
 
-const ItemInfo = ({ item }) =>
+const ItemInfo = ({ item, transfers }) =>
 
   <div>
+    {console.log('transfers are', transfers)}
     {
       solerusID(item).map(item =>
         <div key={keys(item)[0]}>
@@ -26,7 +27,6 @@ const ItemInfo = ({ item }) =>
           </div>
           <div style={{ fontWeight: 200 }}>{item[keys(item)[0]]}</div>
         </div>,
-
       )
     }
     {
@@ -36,6 +36,10 @@ const ItemInfo = ({ item }) =>
           <div style={{ fontWeight: 200 }}>{item[keys(item)[0]]}</div>
         </div>)
     }
+    {transfers.transferDate && <div key={keys(item)[0]}>
+      <div style={{ fontWeight: 700, marginTop: '5%' }}>Date Received</div>
+      <div style={{ fontWeight: 200 }}>{new Date(transfers.transferDate).toLocaleDateString().replace(/\//g, '-')}</div>
+    </div>}
     <ReactTooltip place="top" type="dark" effect="solid">
       <p>
         The Solerus ID corresponds to your product&apos;s unique ID on the blockchain. <br />
