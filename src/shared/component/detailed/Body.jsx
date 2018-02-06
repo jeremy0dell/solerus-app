@@ -36,6 +36,7 @@ const Body = ({ item, email, history, transfers }) =>
         {console.log('item is', item)}
         <TransferModal history={history} email={email} id={item && item._id} />
       </div>
+      <div style={{ height: '50px'}} />
     </div>
   </div>
 

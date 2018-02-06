@@ -29,7 +29,7 @@ const boxShadow = {
   backgroundColor: 'white',
   boxShadow: '0 2px 8px rgba(0,0,0,.15)',
   borderRadius: '5px',
-  display: 'flex', 
+  display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   paddingTop: '20px',
@@ -92,4 +92,14 @@ const analytics = {
 }
 
 
-export default { button, container, createContainer, boxShadow, createProd, createCert, transfer, analytics, transferForm}
+export default {
+  button,
+  container,
+  createContainer,
+  boxShadow,
+  createProd,
+  createCert,
+  transfer,
+  analytics,
+  transferForm,
+}
