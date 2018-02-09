@@ -5,8 +5,8 @@ import { getAnalytics } from '../../../util/analytics'
 import { getProducts } from '../../../util/getters'
 
 import TopBar from './TopBar'
-import Product from './Product' // eslint-disable-line
 import Dropdowns from './Dropdowns'
+import Product from './Product'
 
 // I need to get the associated Products
 
