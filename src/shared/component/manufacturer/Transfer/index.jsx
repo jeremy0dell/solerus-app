@@ -71,8 +71,7 @@ const ManufacturerTransfer = ({
               history.push('/manufacturer')
             })
           }}
-        >
-        </div>
+        />
       </div>
     </div>
   </div>

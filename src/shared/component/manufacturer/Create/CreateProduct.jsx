@@ -18,9 +18,7 @@ const CreateProduct = ({ user, form, handleChange, handleUpload }) => (console.l
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
       <div style={styles.boxShadow}>
         <h5 style={{ align: 'center' }}> Create Solerus Product Line </h5>
-
         <input name="name" value={form.name} onChange={handleChange} placeholder="Product Line Name" style={{ width: '70%', marginTop: '10px' }} />
-
         <textarea
           cols="32"
           rows="4"
@@ -30,7 +28,6 @@ const CreateProduct = ({ user, form, handleChange, handleUpload }) => (console.l
           onChange={handleChange}
           style={{ marginTop: '10px' }}
         />
-
         <Dropzone
           style={styles.dropzone}
           onDrop={handleUpload}
@@ -51,9 +48,8 @@ const CreateProduct = ({ user, form, handleChange, handleUpload }) => (console.l
             console.log(uploadObj)
             uploadDocument(form.file, uploadObj)
           }
-        }
-        >
-        </div>
+          }
+        />
       </div>
     </div>
   </div>)
