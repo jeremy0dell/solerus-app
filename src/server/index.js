@@ -56,6 +56,7 @@ routing(app)
 
 /* eslint-disable no-console,no-unused-expressions,no-unused-vars */
 app.use((err, req, res, next) => {
+  console.log('The error is:', err)
   res.sendStatus(500)
 })
 
