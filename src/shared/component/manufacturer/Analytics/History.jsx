@@ -7,12 +7,12 @@ import { MANUFACTURER_INDEX } from '../../../manufacturerRoutes'
 
 const HistoryItem = ({ item, withHistory }) =>
   <div>
-    Transfer:
-    {console.log('1234', item, withHistory)}
+    <b>Transfer</b>
+    {console.log('12345', item, withHistory)}
     {withHistory.recipient && <div>
       <div>From: {withHistory.transferer.name}</div>
       <div>To: {withHistory.recipient.full_name}</div>
-      <div>At: {withHistory.transferDate}</div>
+      <div>Date: {new Date(withHistory.transferDate).toLocaleDateString().replace(/\//g, '-')}</div>
     </div>}
   </div>
 

@@ -3,6 +3,8 @@ import React from 'react'
 import styles from '../../styles/AnalyticsStyles'
 
 const TopBar = ({ user, certificates }) =>
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+  <div style={styles.boxShadow}>
   <div style={styles.topContainer}>
     <div>
       <div>Certificates Created</div>
@@ -15,6 +17,8 @@ const TopBar = ({ user, certificates }) =>
     <div>
       <div>Certificates in Inventory</div>
       <div style={styles.displayText}>{user.ownership.length}</div>
+    </div>
+    </div>
     </div>
   </div>
 
