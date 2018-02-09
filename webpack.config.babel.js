@@ -8,6 +8,7 @@ import { WDS_PORT, isProd } from './src/shared/config'
 export default {
   entry: [
     'react-hot-loader/patch',
+    'babel-polyfill',
     './src/client',
   ],
   output: {
