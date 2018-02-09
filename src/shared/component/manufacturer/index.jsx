@@ -26,8 +26,8 @@ const ManufacturerContainer = ({ user }) =>
       <Route exact path={MANUFACTURER_INDEX} render={() => <Dashboard user={user} />} />
       <Route exact path={MANUFACTURER_CREATE_CERTIFICATES}
         render={() => <CreateCertificates user={user} />} />
-      <Route exact path={MANUFACTURER_CREATE_PRODUCT}
-        render={() => <CreateProduct user={user} />} />
+      {/* <Route exact path={MANUFACTURER_CREATE_PRODUCT}
+        render={() => <CreateProduct user={user} />} /> */}
       <Route exact path={MANUFACTURER_TRANSFER_PAGE} render={() => <TransferPage user={user} />} />
       <Route path={MANUFACTURER_ANALYTICS_PAGE} render={() => <AnalyticsPage user={user} />} />
     </Switch>

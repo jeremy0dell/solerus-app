@@ -12,6 +12,8 @@ import Dashboard from './component/dashboard'
 import Detailed from './component/detailed'
 import Footer from './component/footer'
 import NotFoundPage from './component/page/not-found'
+import CreateProduct from './component/manufacturer/Create/CreateProduct'
+
 
 import { APP_NAME } from './config'
 
@@ -25,6 +27,7 @@ import {
 
 import {
   MANUFACTURER_LOGIN_ROUTE,
+  MANUFACTURER_CREATE_PRODUCT,
   MANUFACTURER_INDEX,
 } from './manufacturerRoutes'
 
@@ -43,7 +46,10 @@ const App = () =>
         <Route exact path={DETAIL_PAGE_ROUTE} render={() => <Detailed />} />
 
         <Route exact path={MANUFACTURER_LOGIN_ROUTE} render={() => <ManufacturerLogin />} />
+
         <Route path={MANUFACTURER_INDEX} render={() => <ManufacturerDashboard />} />
+
+        <Route path={MANUFACTURER_CREATE_PRODUCT} render={() => <CreateProduct />} />
 
         <Route component={NotFoundPage} />
       </Switch>

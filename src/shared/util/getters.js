@@ -63,12 +63,12 @@ export const getProducts = compose(
     componentDidMount() {
       const { user, setProduct } = this.props
 
-      // Promise.all(user.productLines.map(prod => axios.get(`/api${PRODUCT_INDEX}/${prod}`)))
-      // .then((res) => {
-      //   res.forEach((prod) => {
-      //     setProduct(prod.data)
-      //   })
-      // })
+      Promise.all(user.productLines.map(prod => axios.get(`/api${PRODUCT_INDEX}/${prod}`)))
+      .then((res) => {
+        res.forEach((prod) => {
+          setProduct(prod.data)
+        })
+      })
     },
   }),
 )
