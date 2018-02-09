@@ -11,27 +11,29 @@ import { Server } from 'http'
 import bodyParser from 'body-parser'
 import passport from 'passport'
 import favicon from 'serve-favicon'
-import socketIO from 'socket.io'
+// import socketIO from 'socket.io'
 
 import './db'
 
 import authenticationRoute from './routes/authentication'
 import usersRoute from './routes/users'
+import itemsRoute from './routes/items'
 import manufacturerAuthRoute from './routes/manufacturer/authentication'
 import manufacturersRoute from './routes/manufacturer'
+import analyticsRoute from './routes/manufacturer/analytics'
 import verificationRoute from './routes/verify'
 import productsRoute from './routes/products'
 import transfersRoute from './routes/transfers'
 import routing from './routing'
 
 import { WEB_PORT, STATIC_PATH, isProd } from '../shared/config'
-import setUpSocket from './socket'
+// import setUpSocket from './socket'
 
 const app = express()
 // flow-disable-next-line
 const http = Server(app)
-const io = socketIO(http)
-setUpSocket(io)
+// const io = socketIO(http)
+// setUpSocket(io)
 
 app.use(bodyParser.json())
 app.use(compression())
@@ -48,8 +50,8 @@ app.use(STATIC_PATH, express.static('public'))
 
 app.use('/auth', authenticationRoute, manufacturerAuthRoute)
 app.use('/verify', verificationRoute)
-app.use('/api', usersRoute, productsRoute, transfersRoute)
-app.use('/manu', manufacturersRoute)
+app.use('/api', usersRoute, productsRoute, itemsRoute, transfersRoute)
+app.use('/manu', analyticsRoute, manufacturersRoute)
 routing(app)
 
 /* eslint-disable no-console,no-unused-expressions,no-unused-vars */

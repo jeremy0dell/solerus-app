@@ -16,7 +16,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import App from '../shared/app'
 import { APP_CONTAINER_SELECTOR, JSS_SSR_SELECTOR, isProd } from '../shared/config'
 import authenticationReducer from '../shared/reducer/authentication'
-import setUpSocket from './socket'
+// import setUpSocket from './socket'
 
 window.jQuery = $
 window.Tether = Tether
@@ -60,4 +60,4 @@ const jssServerSide = document.querySelector(JSS_SSR_SELECTOR)
 // flow-disable-next-line
 jssServerSide.parentNode.removeChild(jssServerSide)
 
-setUpSocket(store)
+// setUpSocket(store)

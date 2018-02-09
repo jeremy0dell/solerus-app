@@ -45,7 +45,12 @@ const transferItem = async (transferObj) => {
   // pop item in sender, create transfer, push transfer to item
   sender.markModified('ownership')
   receiver.markModified('ownership')
-  return Promise.all([sender.save(), receiver.save(), ...transfers.map(x => x.save())])
+  return Promise.all([
+    sender.save(),
+    receiver.save(),
+    ...transfers.map(x => x.save()),
+    ...orphanItems.map(x => x.save()),
+  ])
 }
 
 export default transferItem

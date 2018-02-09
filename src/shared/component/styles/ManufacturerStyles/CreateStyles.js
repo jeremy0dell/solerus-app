@@ -6,7 +6,6 @@ const container = {
 }
 
 const dropzone = {
-  width: 250,
   border: '1px dotted black',
   textAlign: 'center',
   verticalAlign: 'middle',
@@ -19,7 +18,7 @@ const boxShadow = {
   backgroundColor: 'white',
   boxShadow: '0 2px 8px rgba(0,0,0,.15)',
   borderRadius: '5px',
-  display: 'flex', 
+  display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
@@ -32,7 +31,7 @@ const boxShadowTransfer = {
   backgroundColor: 'white',
   boxShadow: '0 2px 8px rgba(0,0,0,.15)',
   borderRadius: '5px',
-  display: 'flex', 
+  display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',

@@ -51,7 +51,7 @@ router.post(MANUFACTURER_CREATE_CERTS, (req, res) => {
 router.post(MANUFACTURER_UPLOAD, upload.any(), (req, res) => {
   const { name, retailer, description } = req.body
 
-  const productObj = { image: req.files[0].path, retailer, name, description }
+  const productObj = { image: `/static${req.files[0].path.slice(6)}`, retailer, name, description }
 
   createProductLine(productObj)
 

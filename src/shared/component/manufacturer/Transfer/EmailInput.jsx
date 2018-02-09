@@ -3,7 +3,7 @@ import { TextField, DropDownMenu, MenuItem } from 'material-ui'
 
 
 const Input = ({ form, handleChange, updateState }) =>
-  <div style={{marginTop: '20px'}}>
+  <div style={{ marginTop: '20px' }}>
     <div>Enter Registered Solerus Email Address of Recipient:</div>
     <TextField
       hintText="Solerus registered Email"
@@ -16,7 +16,7 @@ const Input = ({ form, handleChange, updateState }) =>
     <DropDownMenu
       value={form.recipientType}
       onChange={(event, idx, value) => updateState({ ...form, recipientType: value })}
-      style={{marginTop: '0px'}}
+      style={{ marginTop: '0px' }}
       // onChange={(event, idx, value) => { console.log({ recipientType: value }) }}
     >
       <MenuItem value={'Manufacturer'} primaryText="Manufacturer" />
