@@ -1,6 +1,6 @@
 {
   "env": {
-    "NPM_CONFIG_PRODUCTION": { "required": false },
+    "NPM_CONFIG_PRODUCTION": { "required": true },
     "MONGODB_URI": { "required": true }
   },
   "environments": {
