@@ -6,7 +6,6 @@ import { getProducts } from '../../../util/getters'
 
 import TopBar from './TopBar'
 import Product from './Product.jsx' // eslint-disable-line
-import Item from './Item.jsx' // eslint-disable-line
 import Dropdowns from './Dropdowns'
 
 // I need to get the associated Products

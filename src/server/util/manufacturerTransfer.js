@@ -30,6 +30,8 @@ const transferItem = async (transferObj) => {
     throw new Error('User doesn\'t own correct items')
   }
 
+  // get the items from the actual DB
+
   const orphanItems = remove(sender.ownership, itm => itemsObj[itm.cora_id] !== undefined)
   // console.log('orphans are', orphanItems)
 

@@ -92,4 +92,14 @@ const analytics = {
 }
 
 
-export default { button, container, createContainer, boxShadow, createProd, createCert, transfer, analytics, transferForm } // eslint-disable-line
+export default {
+  button,
+  container,
+  createContainer,
+  boxShadow,
+  createProd,
+  createCert,
+  transfer,
+  analytics,
+  transferForm,
+}
