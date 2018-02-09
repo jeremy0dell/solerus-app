@@ -10,7 +10,8 @@ const types = { User, Manufacturer }
 * Takes an itemId (string), transerer email (string), and transferee email (string)
 *
 */
-const transferItem = async (transferObj) => {
+// const transferItem = async (transferObj) => {
+const transferItem = (transferObj) => {
   return 'hello'
   // const { email, items, user, type } = transferObj
   //
