@@ -26,6 +26,7 @@ const ItemsTable = ({ user, itemsSelected, selectedProduct, products, handleChec
         </TableRow>
       </TableHeader>
       <TableBody deselectOnClickaway={false} >
+        {console.log('PROD', products)}
         {
           user.productLines.length === products.length &&
           user.ownership.filter(item => item.product === products[selectedProduct]._id)
