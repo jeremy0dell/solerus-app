@@ -5,7 +5,7 @@ import Item from './src/server/model/item'
 import User from './src/server/model/user'
 import Manufacturer from './src/server/model/manufacturer'
 
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect('mongodb://heroku_hmbt50dq:gml26mesa4opjehc12gof41272@ds131258.mlab.com:31258/heroku_hmbt50dq')
 
 /* eslint-disable */
 const products = [{"name":"Supreme x The North Face Leopard Nuptse","description":"Ideal for unpredictable weather forecasts, this packable, warm jacket is crafted from more than 50% recycled content and insulated with 700 fill down that’s certified to the Responsible Down Standard (RDS).","retailer":"Supreme","image":"https://i.imgur.com/fqQ2Bfs.jpg"},
