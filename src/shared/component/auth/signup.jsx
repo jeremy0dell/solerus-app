@@ -41,7 +41,7 @@ class SignUp extends Component {
         if (this.validateEmail(email)) {
           this.setState({ emailValid: true })
           const newUser = { full_name: `${firstname} ${lastname}`, email, password }
-          axios.post('http://localhost:8000/api/users', newUser)
+          axios.post('/api/users', newUser)
           .then(console.log)
           .then(() => {
             // console.log("there was an error")

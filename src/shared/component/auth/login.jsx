@@ -43,7 +43,7 @@ class Login extends Component {
     e.preventDefault()
     const { email, password } = this.state
     const loginInfo = { email, password }
-    axios.post('http://localhost:8000/auth/auth', loginInfo)
+    axios.post('/auth/auth', loginInfo)
     .then((res) => {
       console.log('res.data is', res.data, 'adduser is', addUserToState)
       addUserToState(res.data)
