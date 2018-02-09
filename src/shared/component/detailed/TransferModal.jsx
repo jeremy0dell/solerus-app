@@ -35,7 +35,7 @@ const TransferModal = ({ form, setForm, email, id, removeItemFromState, history 
             className="btn btn-primary"
             data-dismiss="modal"
             onClick={() => {
-              axios.post(`http://localhost:8000/api${USERS_TRANSFER}`, { item: id, transferer: email, transferee: validator.normalizeEmail(form.email) })
+              axios.post(`/api${USERS_TRANSFER}`, { item: id, transferer: email, transferee: validator.normalizeEmail(form.email) })
               .then(() => {
                 history.push('/dashboard')
                 removeItemFromState(id)

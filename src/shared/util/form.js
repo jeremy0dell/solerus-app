@@ -48,7 +48,7 @@ export const uploadDocument = (file, object) => {
   data.append('description', object.description)
 
   console.log('posting this', data)
-  return axios.post(`http://localhost:8000/manu${MANUFACTURER_UPLOAD}`, data)
+  return axios.post(`/manu${MANUFACTURER_UPLOAD}`, data)
 }
 
-export const createCertificates = object => axios.post(`http://localhost:8000/manu${MANUFACTURER_CREATE_CERTS}`, object)
+export const createCertificates = object => axios.post(`/manu${MANUFACTURER_CREATE_CERTS}`, object)
