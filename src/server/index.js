@@ -1,5 +1,4 @@
 // @flow
-
 import './dotenv'
 
 /* eslint-disable import/first */

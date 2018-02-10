@@ -1,3 +1,4 @@
+require('babel-polyfill')
 import { remove, keyBy } from 'lodash'
 
 import User from '../model/user'
