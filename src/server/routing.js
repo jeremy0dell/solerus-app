@@ -25,7 +25,7 @@ export default (app: Object) => {
 
   app.get(DASHBOARD_PAGE_ROUTE, (req, res) => {
     console.log('got', DASHBOARD_PAGE_ROUTE, 'sending', req.user._id.toString())
-    fetcher.get(`http://localhost:8000/api/users/${req.user._id.toString()}`)
+    fetcher.get(`/api/users/${req.user._id.toString()}`)
     .then((response) => {
       console.log('response is', response.data)
       res.send(renderApp(req.url, populateUser(response.data)))
@@ -35,7 +35,7 @@ export default (app: Object) => {
 
   app.get(MANUFACTURER_LOGIN_ROUTE, (req, res) => {
     console.log('got1', MANUFACTURER_DASHBOARD_ROUTE, 'sending', req.user)
-    // fetcher.get(`http://localhost:8000/manu/users/${req.user._id.toString()}`)
+    // fetcher.get(`/manu/users/${req.user._id.toString()}`)
     // .then((response) => {
     //   console.log('response is', response.data)
     //   res.send(renderApp(req.url, populateUser(response.data)))
@@ -45,7 +45,7 @@ export default (app: Object) => {
 
   app.get(MANUFACTURER_DASHBOARD_ROUTE, (req, res) => {
     console.log('got2', MANUFACTURER_DASHBOARD_ROUTE, 'sending', req.user._id.toString())
-    fetcher.get(`http://localhost:8000/manu/${MANUFACTURER_INDEX}/${req.user._id.toString()}`)
+    fetcher.get(`/manu/${MANUFACTURER_INDEX}/${req.user._id.toString()}`)
     .then((response) => {
       console.log('response is', response.data)
       res.send(renderApp(req.url, populateUser(response.data)))
@@ -54,7 +54,7 @@ export default (app: Object) => {
 
   app.get(`${MANUFACTURER_INDEX}*`, (req, res) => {
     console.log('got3', MANUFACTURER_DASHBOARD_ROUTE, 'sending', req.user._id.toString())
-    fetcher.get(`http://localhost:8000/manu/${MANUFACTURER_INDEX}/${req.user._id.toString()}`)
+    fetcher.get(`/manu/${MANUFACTURER_INDEX}/${req.user._id.toString()}`)
     .then((response) => {
       console.log('response is', response.data)
       res.send(renderApp(req.url, populateUser(response.data)))
