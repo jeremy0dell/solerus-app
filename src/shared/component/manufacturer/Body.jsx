@@ -23,7 +23,6 @@ const routes = [
 const Body = () =>
   <div style={styles.container}>
     <div style={styles.boxShadow}>
-      <Link to="/manufacturer/create-certificates">QWERQWER</Link>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <Link to={routes[2][1]} style={{ width: '100%' }}> <div style={styles.createProd} /></Link>
       </div>
