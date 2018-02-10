@@ -1,6 +1,7 @@
 // @flow
 
 export const WEB_PORT = process.env.PORT
+export const APP_URI = process.env.APP_URI || `http://127.0.0.1:${WEB_PORT}`
 export const WDS_PORT = 7000
 export const STATIC_PATH = '/static'
 
