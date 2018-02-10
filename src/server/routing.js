@@ -30,6 +30,7 @@ export default (app: Object) => {
       console.log('response is', response.data)
       res.send(renderApp(req.url, populateUser(response.data)))
     })
+    .catch(console.error)
   })
 
   app.get(MANUFACTURER_LOGIN_ROUTE, (req, res) => {

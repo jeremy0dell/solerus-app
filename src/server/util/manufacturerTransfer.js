@@ -1,9 +1,10 @@
-require('babel-polyfill')
 import { remove, keyBy } from 'lodash'
 
 import User from '../model/user'
 import Manufacturer from '../model/manufacturer'
 import Transfer from '../model/transfer'
+
+require('babel-polyfill')
 
 const types = { User, Manufacturer }
 
