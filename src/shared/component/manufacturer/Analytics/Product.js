@@ -7,6 +7,7 @@ import { getUsersForProduct } from '../../../util/analytics'
 
 import HistoryItem from './History'
 
+/* eslint-disable */
 const Product = ({ product, usersWith, itemWith, setItemData }) =>
   <div style={{ display: 'flex' }}>
     <div>
