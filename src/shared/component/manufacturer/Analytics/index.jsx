@@ -13,10 +13,10 @@ import styles from '../../styles/AnalyticsStyles'
 
 // I need to get the associated Products
 
-/*{ <Switch>
-          <Route exact path={MANUFACTURER_ANALYTICS_PRODUCT} render={() => <Product user={user} />} />
-          <Route exact path={MANUFACTURER_ANALYTICS_ITEM} render={() => <Item user={user} />} />
-        </Switch> } */
+/*  { <Switch>
+    <Route exact path={MANUFACTURER_ANALYTICS_PRODUCT} render={() => <Product user={user} />} />
+    <Route exact path={MANUFACTURER_ANALYTICS_ITEM} render={() => <Item user={user} />} />
+    </Switch> } */
 
 const Button = () =>
   <Link to="/manufacturer">

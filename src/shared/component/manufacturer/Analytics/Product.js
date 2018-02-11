@@ -12,7 +12,7 @@ const Product = ({ product, usersWith, itemWith, setItemData }) =>
   <div style={{ display: 'flex' }}>
     <div>
       <b> Current Owners List </b>
-      <hr/>
+      <hr />
       {
         values(usersWith).map(usr =>
           <div key={usr._id}>
