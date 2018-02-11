@@ -12,7 +12,7 @@ const LandingPage = ({ history }) =>
     <div id="container">
       {/* <img src="/static/images/iphonex-clay-mockup.png" alt="iPhone X" /> */}
       <div style={{ margin: '120px 0px 0px 100px' }}>
-        <img id="headerLogo" src="/static/images/headerLogo.png" alt="" />
+        <img id="headerLogo" src="/static/images/HeaderLogo.png" alt="" />
         <p id="heroText">Digital certificates of authenticity for your expensive assets</p>
       </div>
       {/* <button className="btn" id="how">How it works ↓</button> */}
