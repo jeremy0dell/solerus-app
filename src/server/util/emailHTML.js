@@ -1,5 +1,5 @@
 const message = (req, token, user) => ({
-  from: 'no-reply@solerus.com',
+  from: 'no-reply@solerus.io',
   to: user.email,
   subject: 'Solerus Email Verification',
   html: `<table cellpadding="0" cellspacing="0" border="0" width="100%" style="background: #f5f8fa; min-width: 350px; font-size: 1px; line-height: normal;">
