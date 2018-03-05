@@ -22,7 +22,7 @@
     "heroku-postbuild": "yarn prod:build",
     "precommit": "yarn test",
     "prepush": "yarn test && yarn prod:build",
-    "seed-database": "babel-node seed.js"
+    "seed-database": "babel-node seed-db.js"
   },
   "dependencies": {
     "axios": "^0.17.1",

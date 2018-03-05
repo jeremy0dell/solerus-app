@@ -46,15 +46,16 @@ router.post(MANUFACTURER_ITEMS_WITH, (req, res, next) => {
 
   console.log('called with', product)
 
-  Item.find({ product: mongoose.Types.ObjectId(product) })
-  .then((items) => {
-    if (items) {
-      res.json(items)
-      return
-    }
-    res.sendStatus(404)
-  })
-  .catch(next)
+  Item
+    .find({ product: mongoose.Types.ObjectId(product) })
+    .then((items) => {
+      if (items) {
+        res.json(items)
+        return
+      }
+      res.sendStatus(404)
+    })
+    .catch(next)
 })
 
 export default router

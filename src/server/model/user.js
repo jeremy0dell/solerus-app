@@ -5,7 +5,7 @@ const userSchema = Schema({
   email: { type: String, required: true, index: { unique: true } },
   password: { type: String, required: true },
   isVerified: { type: Boolean, default: false },
-  ownership: [{}],
+  ownership: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Item' }],
   passwordResetToken: String,
   passwordResetExpires: Date,
 }, {

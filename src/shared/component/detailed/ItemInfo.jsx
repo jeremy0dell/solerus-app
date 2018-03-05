@@ -36,10 +36,12 @@ const ItemInfo = ({ item, transfers }) =>
           <div style={{ fontWeight: 200 }}>{item[keys(item)[0]]}</div>
         </div>)
     }
-    {transfers.transferDate && <div key={keys(item)[0]}>
+    {/* {transfers.transferDate && <div key={keys(item)[0]}>
       <div style={{ fontWeight: 700, marginTop: '5%' }}>Date Received</div>
-      <div style={{ fontWeight: 200 }}>{new Date(transfers.transferDate).toLocaleDateString().replace(/\//g, '-')}</div>
-    </div>}
+      <div style={{ fontWeight: 200 }}>
+        {new Date(transfers.transferDate).toLocaleDateString().replace(/\//g, '-')}
+      </div>
+    </div>} */}
     <ReactTooltip place="top" type="dark" effect="solid">
       <p>
         The Solerus ID corresponds to your product&apos;s unique ID on the blockchain. <br />

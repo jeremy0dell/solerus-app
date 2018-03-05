@@ -25,11 +25,13 @@ const TransferButton = ({ text }) =>
 const LostButton = ({ text }) => <button style={styles.lostButton}>{text}</button>
 
 
-const Body = ({ item, email, history, transfers }) =>
+const Body = ({ item, email, history, transfers }) => // eslint-disable-line
   <div style={styles.body}>
+    {console.log('in Body item is', item)}
     <ItemView item={item} />
     <div style={{ width: '40%' }}>
-      <ItemInfo item={item} transfers={transfers.lastTransfer} />
+      <ItemInfo item={item} />
+      {/* <ItemInfo item={item} transfers={transfers.lastTransfer} /> */}
       <div style={{ display: 'flex', marginTop: '5%' }}>
         <TransferButton text="Transfer" />
         <LostButton text="Report Lost" />

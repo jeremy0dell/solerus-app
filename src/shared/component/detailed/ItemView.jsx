@@ -10,6 +10,7 @@ const Button = () =>
 
 const ItemView = ({ item }) =>
   <div style={styles.viewBody}>
+    {console.log('in VIEW itm is', item)}
     <Button />
     <div>
       <div style={styles.itemName}>Your {item.product.name}</div>

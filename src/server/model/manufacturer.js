@@ -2,10 +2,11 @@ import mongoose, { Schema } from 'mongoose'
 
 const manufacturerSchema = Schema({
   name: { type: String, required: true },
+  manuType: { type: String, required: true },
   email: { type: String, required: true, index: { unique: true } },
   password: { type: String, required: true },
   isVerified: { type: Boolean, default: false },
-  ownership: [{}],
+  ownership: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Item' }],
   productLines: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
   passwordResetToken: String,
   passwordResetExpires: Date,

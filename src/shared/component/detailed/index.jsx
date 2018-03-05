@@ -2,9 +2,10 @@ import React from 'react'
 import { compose } from 'recompose'
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
-import find from 'lodash/find'
+// import find from 'lodash/find'
 
-import { getTransfers } from '../../util/getters'
+// import { getTransfers } from '../../util/getters'
+import { DetailedHOC } from '../../util/detailedView'
 
 import Detailed from './Detailed'
 // have state { itemName, itemSummary, itemPicture, coraId }
@@ -14,29 +15,27 @@ import Detailed from './Detailed'
 // render everything
 // lol jk, get everything from querystring and redux state
 
-const DetailContainer = ({ item, email, history, transfers }) =>
+const DetailContainer = ({ details, user }) =>
+  // <div>
+  //   this is detailed!!!
+  //   {console.log('DEETS', details)}
+  // </div>
   <Detailed
-    history={history}
-    item={item}
-    email={email}
-    transfers={transfers}
+    history={details.history}
+    item={details}
+    email={user.email}
+    // transfers={transfers}
   />
 
-const mapStateToProps = (state, ownProps) => {
-  const { location } = ownProps
-  const { pathname } = location
-
-  return ({
-    item: find(state.authentication.user.ownership, ['_id', pathname.split('/')[2]]),
-    email: state.authentication.user.email,
-    user: state.authentication.user,
-  })
-}
+const mapStateToProps = state => ({
+  user: state.authentication.user,
+})
 
 export default compose(
   withRouter,
   connect(mapStateToProps),
-  getTransfers,
+  DetailedHOC,
+  // getTransfers,
 )(DetailContainer)
 
 // export default withRouter(connect(mapStateToProps)(DetailContainer))

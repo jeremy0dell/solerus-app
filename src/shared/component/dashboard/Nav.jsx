@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchBar from 'material-ui-search-bar'
+// import SearchBar from 'material-ui-search-bar'
 import AddProductModal from './AddProductModal'
 
 import styles from '../styles/DashboardStyles/NavStyles'
@@ -17,7 +17,8 @@ const Nav = ({ user }) =>
         alt="Solerus logo"
       />
 
-      <SearchBar
+      {/* integrate new items here */}
+      {/* <SearchBar
         className="col-md-offset-5"
         dataSource={user.ownership.map(item => ({
           id: item._id.toString(),
@@ -27,7 +28,7 @@ const Nav = ({ user }) =>
         onChange={() => console.log('onChange')}
         onRequestSearch={() => console.log('onRequestSearch')}
         style={styles.searchBar}
-      />
+      /> */}
       <div className="row">
         <div style={styles.add}>
           <button
