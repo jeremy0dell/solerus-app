@@ -51,6 +51,10 @@ export const getUser = compose(
   }),
 )
 
+// export const getInventory = initial compose(
+//   withState('inventory', 'updateInventory', )
+// )
+
 export const getProducts = compose(
   withState('products', 'updateProducts', { list: [] }),
   withHandlers({

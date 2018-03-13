@@ -1,5 +1,6 @@
 import React from 'react'
-import { withState } from 'recompose'
+import { compose, withState } from 'recompose'
+import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import validator from 'validator'
@@ -37,8 +38,8 @@ const TransferModal = ({ form, setForm, email, id, removeItemFromState, history 
             onClick={() => {
               axios.post(`/api${USERS_TRANSFER}`, { item: id, transferer: email, transferee: validator.normalizeEmail(form.email) })
               .then(() => {
-                history.push('/dashboard')
                 removeItemFromState(id)
+                history.push('/dashboard')
               })
               .catch(console.log)
             }}
@@ -48,4 +49,9 @@ const TransferModal = ({ form, setForm, email, id, removeItemFromState, history 
     </div>
   </div>
 )
-export default connect(null, { removeItemFromState })(formState(TransferModal))
+// export default connect(null, { removeItemFromState })(formState(TransferModal))
+export default compose(
+  withRouter,
+  connect(null, { removeItemFromState }),
+  formState,
+)(TransferModal)

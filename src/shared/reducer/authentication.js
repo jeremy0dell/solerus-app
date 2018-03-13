@@ -18,7 +18,8 @@ const authenticationReducer = (state = initialState, action) => {
         user: action.payload,
       }
     case REMOVE_ITEM_FROM_STATE: //eslint-disable-line
-      const removed = remove(state.user.ownership, itm => itm._id.toString() === action.payload)
+      console.log(action, 'hello')
+      const removed = remove(state.user.ownership, itm => itm.toString() === action.payload)
       console.log('removed is', removed)
       return state
     default:

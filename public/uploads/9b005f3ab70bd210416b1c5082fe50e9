@@ -1,0 +1,41 @@
+<svg width="258" height="500" viewBox="0 0 258 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Group</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(58 896)">
+<g id="Group">
+<g id="Canvas">
+<g id="Brain">
+<g id="Subtract">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(115.852 -896)" fill="#F2994A"/>
+</g>
+</g>
+<g id="Subtract">
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(38 -882.046)" fill="#F2994A"/>
+</g>
+</g>
+<g id="Subtract">
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(19 -761.046)" fill="#F2994A"/>
+</g>
+</g>
+<g id="Subtract">
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(-19 -634.046)" fill="#F2994A"/>
+</g>
+</g>
+<g id="Subtract">
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(-58 -747.046)" fill="#F2994A"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" fill-rule="evenodd" d="M 39.1744 2.69682e-07C 63.9162 -0.00268528 83.9712 20.0524 83.9686 44.7941L 83.9246 455.104C 83.922 479.845 63.8627 499.905 39.1209 499.907C 22.3095 499.909 7.66187 490.651 0 476.954L 18.4151 476.954C 24.0448 481.931 31.4452 484.952 39.5517 484.951C 57.181 484.948 71.4735 470.655 71.4754 453.026L 71.5189 46.8755C 71.5208 29.2452 57.2299 14.9548 39.5997 14.9573C 31.497 14.9585 24.0991 17.9785 18.4697 22.9537L 0.0533447 22.9537C 7.71944 9.2597 22.3665 0.00183132 39.1744 2.69682e-07Z"/>
+<path id="path1_fill" fill-rule="evenodd" d="M 72.5 145C 112.541 145 145 112.541 145 72.5C 145 32.4594 112.541 0 72.5 0C 32.4594 0 0 32.4594 0 72.5C 0 112.541 32.4594 145 72.5 145ZM 71.963 131.037C 104.589 131.037 131.037 104.589 131.037 71.963C 131.037 39.3373 104.589 12.8889 71.963 12.8889C 39.3372 12.8889 12.8889 39.3373 12.8889 71.963C 12.8889 104.589 39.3372 131.037 71.963 131.037Z"/>
+</defs>
+</svg>

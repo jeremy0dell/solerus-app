@@ -1,5 +1,5 @@
 import React from 'react'
-import includes from 'lodash/includes'
+// import includes from 'lodash/includes'
 import {
   Table,
   TableBody,
@@ -12,12 +12,12 @@ import {
 // material ui table with multi-select
 // HOC that takes given product and searches current user for items of that product
 
-const ItemsTable = ({ user, itemsSelected, selectedProduct, products, handleCheckboxEvent }) =>
+const ItemsTable = ({ transferState, onChange }) =>
   <div>
-    {console.log('user is', user)}
     <Table
       multiSelectable
-      onCellClick={handleCheckboxEvent}
+      // onCellClick={handleCheckEvent}
+      onCellClick={onChange}
     >
       <TableHeader>
         <TableRow>
@@ -26,8 +26,18 @@ const ItemsTable = ({ user, itemsSelected, selectedProduct, products, handleChec
         </TableRow>
       </TableHeader>
       <TableBody deselectOnClickaway={false} >
-        {console.log('PROD', products)}
+        {/* {console.log('PROD', products)} */}
         {
+          transferState.currProduct && transferState.currProduct.items.map((item, idx) =>
+            <TableRow
+              key={item.cora_id}
+              selected={!!transferState.itemsSelected[idx]}
+            >
+              <TableRowColumn>{item.serial}</TableRowColumn>
+              <TableRowColumn>{item.cora_id}</TableRowColumn>
+            </TableRow>)
+        }
+        {/* {
           user.productLines.length === products.length &&
           user.ownership.filter(item => item.product === products[selectedProduct]._id)
           .map((item, idx) =>
@@ -39,7 +49,7 @@ const ItemsTable = ({ user, itemsSelected, selectedProduct, products, handleChec
               <TableRowColumn>{item.cora_id}</TableRowColumn>
             </TableRow>,
           )
-        }
+        } */}
       </TableBody>
     </Table>
   </div>

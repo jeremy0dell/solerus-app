@@ -2,6 +2,7 @@ import { remove, includes } from 'lodash'
 
 import User from '../model/user'
 import Item from '../model/item'
+import Transfer from '../model/transfer'
 
 /*
 * Takes an itemId (string), transerer email (string), and transferee email (string)
@@ -18,15 +19,26 @@ const transferItem = (item, transferer, transferee) => {
       return new Error('The email entered is not valid')
     }
 
+    const itemTransfer = new Transfer({
+      transferType: 'U->U',
+      transferer: toGiveRes._id,
+      recipient: toGetRes._id,
+    })
+
+    toTransferRes.history.push(itemTransfer._id)
+    toTransferRes.markModified('history')
+
     const found = remove(toGiveRes.ownership,
-    itm => itm._id.toString() === toTransferRes._id.toString())
+    itm => itm.toString() === toTransferRes._id.toString())
 
     toGiveRes.markModified('ownership')
 
     toGetRes.ownership.push(found[0])
     toGetRes.markModified('ownership')
-    return Promise.all([toGiveRes.save(), toGetRes.save()])
+    return Promise.all([toGiveRes, toGetRes, toTransferRes, itemTransfer].map(x => x.save()))
   })
+  .then(console.log)
+  .catch(console.log)
 }
 
 export default transferItem
