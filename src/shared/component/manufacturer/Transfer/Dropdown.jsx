@@ -5,7 +5,6 @@ import MenuItem from 'material-ui/MenuItem'
 // Select product
 const Dropdown = ({ transferState, setCurrProduct }) =>
   <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-    dropdown
     <div style={{ display: 'flex', flexDirection: 'row', lineHeight: '3.6' }}>
       <p style={{ marginRight: '0px', marginBottom: '0px', bottom: '0px' }}> Select Product Line:</p>
       <DropDownMenu
