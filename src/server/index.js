@@ -52,10 +52,6 @@ app.use('/verify', verificationRoute)
 app.use('/api', usersRoute, productsRoute, itemsRoute, transfersRoute)
 app.use('/manu', analyticsRoute, manufacturersRoute)
 
-app.get('/env', (req, res) => {
-  res.json(process.env)
-})
-
 routing(app)
 
 /* eslint-disable no-console,no-unused-expressions,no-unused-vars */

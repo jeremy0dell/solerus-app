@@ -21,14 +21,14 @@ const products = [{"name":"Supreme x The North Face Leopard Nuptse","description
 /* eslint-enable */
 
 const user = {
-  full_name: 'Foo Bar',
+  full_name: 'Jeremy Odell',
   email: 'jeremy@gmail.com',
   password: '$2a$10$is/Zb98l9UYf8wzYWMdk5epyn5hoXlwxg48Qjqpg9bkOgyQ0BFCw.', // 'qwerqwer'
   isVerified: true,
 }
 
 const userTwo = {
-  full_name: 'Another Guy',
+  full_name: 'Azhar Hussain',
   email: 'azhar@gmail.com',
   password: '$2a$10$is/Zb98l9UYf8wzYWMdk5epyn5hoXlwxg48Qjqpg9bkOgyQ0BFCw.', // 'qwerqwer'
   isVerified: true,
@@ -95,7 +95,7 @@ new User(user).save()
 })
 .then((res) => {
   User.update(
-    { full_name: 'Foo Bar' },
+    { full_name: 'Jeremy Odell' },
     { $push: { ownership: { $each: res } } },
   ).exec()
 })

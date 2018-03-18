@@ -11,10 +11,12 @@ import HistoryItem from './History'
 const Product = ({ product, usersWith, itemWith, setItemData }) =>
   <div style={{ display: 'flex' }}>
     <div>
+      <b> Current Owners List </b>
+      <hr />
       {
         values(usersWith).map(usr =>
           <div key={usr._id}>
-            <div>Customer: {usr.full_name}</div>
+            <div><b>{usr.full_name}</b></div>
             {
               usr.ownership.filter(itm => product === itm.product)
               .map(item =>
