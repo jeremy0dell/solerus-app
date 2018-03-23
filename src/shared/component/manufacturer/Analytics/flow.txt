@@ -1,0 +1,45 @@
+info I need {
+  products: [Product objects], // products from product Lines
+  ^^^^ FOR INITIAL VIEW ^^^^
+  productSelected: {a Product || null},
+  assocUsers: [User-like objects with found items attached]
+  assocItems: [Items of productSelected],
+  ^^^^ FOR PRODUCT VIEW ^^^^
+  **** FOR ITEM VIEW ****
+  itemSelected: {an Item || null},
+  fullHistory: [{
+    type: String,
+    Transferer: {User or Manufacturer},
+    recipient: {User or Manufacturer},
+  }]
+}
+
+user inputs:
+Products dropdown -- corresponds with 'products' and productSelected
+Items dropdown -- corresponds with 'assocItems' and itemSelected
+
+ON PAGE LOAD:
+  We get Products FROM 'productLines'
+  We populate the Products dropdown
+  (Items dropdown is hidden)
+
+ON PRODUCT SELECT:
+  Render Product component
+  Find all items of selected product that HAVE HISTORY LENGTH
+  (at this point, render the Items dropdown)
+  find current owner of each item and assign it to the item objects
+  Make histogram of users { bob: [item 1, item 10], ... }
+  RENDER THIS DATA
+
+ON ITEM SELECT:
+  Render Item History Component
+  Get selected item from assocItems (should be in there)
+  Grab all the transfers from the DB
+  RENDER THIS DATA
+
+HOCS:
+  FormHOC -- productSelected and itemSelected
+  ProductHOC -- This grabs the products from the productLines onMount
+  ItemHOC:
+    onMount we query items of selected product that HAVE HISTORY LENGTH
+    take
