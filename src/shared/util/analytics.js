@@ -1,9 +1,11 @@
 import { compose, withState, withHandlers, lifecycle } from 'recompose'
 import axios from 'axios'
+import concat from 'lodash/concat'
 
 import {
   MANUFACTURER_CERTIFICATES_CREATED,
   MANUFACTURER_USERS_WITH,
+  MANUFACTURER_PRODUCTS_WITH,
   MANUFACTURER_ITEMS_WITH,
 } from '../manufacturerRoutes'
 
@@ -15,15 +17,12 @@ export const getItems = compose(
     setItems:
     props =>
     (items) => {
-      console.log('ABCDE', items)
       props.updateItems({ list: items })
     },
   }),
   lifecycle({
     componentDidMount() {
       const { setItems, product } = this.props
-
-      console.log(`/manu${MANUFACTURER_ITEMS_WITH}`, this.props)
 
       axios.post(`/manu${MANUFACTURER_ITEMS_WITH}`, { product })
       .then(res => setItems(res.data))
@@ -54,8 +53,6 @@ export const getHistoryForItem = compose(
       const { item } = this.props
 
       axios.get(`/api${ITEM_INDEX}/${item}`)
-      .then(console.log)
-
       // axios.post(`/manu${MANUFACTURER_USERS_WITH}`, { item })
       // .then(res => res.data.forEach(user => setUsersData(user._id, user)))
       // .catch(console.log)
@@ -63,33 +60,33 @@ export const getHistoryForItem = compose(
   }),
 )
 
-export const getUsersForProduct = compose(
-  withState('usersWith', 'updateUsersWith', {}),
-  withState('itemWith', 'updateItemWith', null),
+const getUsersAndItems = (userObj) => {
+  const assocUsers = userObj.data
+  const assocItems = concat(...userObj.data.map(u => u.matchedItems))
+
+  return { assocUsers, assocItems }
+}
+
+export const getUsersForProduct = initialValues => compose(
+  withState('productState', 'updateProductState', initialValues),
   withHandlers({
-    setUsersData:
+    setProductAnalytics:
     props =>
-    (id, value) =>
-    props.updateUsersWith({ ...props.usersWith, [id]: value }),
-    setItemData:
-    props =>
-    (event, idx, value) => {
-      props.updateItemWith(value)
-      console.log('QWERQWERQWER', value, props)
-    },
+    analytics =>
+    props.updateProductState({ ...props.productState, ...getUsersAndItems(analytics) }),
   }),
   lifecycle({
     componentDidMount() {
-      const { product, setUsersData } = this.props
+      const { product, user, setProductAnalytics } = this.props
 
-      axios.post(`/manu${MANUFACTURER_USERS_WITH}`, { product })
-      .then(res => res.data.forEach(user => setUsersData(user._id, user)))
+      axios.post(`/manu${MANUFACTURER_USERS_WITH}`, { product, user })
+      .then(res => setProductAnalytics(res))
       .catch(console.log)
     },
   }),
 )
 
-export const getAnalytics = initialValues => compose( // { certificates: 0,  }
+export const getAnalytics = initialValues => compose(
   withState('analytics', 'updateAnalytics', initialValues),
   withHandlers({
     setData:
@@ -97,7 +94,27 @@ export const getAnalytics = initialValues => compose( // { certificates: 0,  }
     (name, value) => props.updateAnalytics({ ...props.analytics, [name]: value }),
     setAnalyticsProduct:
     props =>
-    (target, index, value) => props.updateAnalytics({ ...props.analytics, product: value }),
+    (target, index, value) => {
+      const { user } = props
+
+      if (value === null) {
+        props.updateAnalytics({
+          ...initialValues,
+          certificates: props.analytics.certificates,
+          products: props.analytics.products,
+          product: value,
+        })
+        return
+      }
+
+      axios.post(`/manu${MANUFACTURER_USERS_WITH}`, { product: value, user })
+      .then(res => props.updateAnalytics({
+        ...props.analytics,
+        ...getUsersAndItems(res),
+        product: value,
+        item: null,
+      }))
+    },
     setAnalyticsItem:
     props =>
     (target, index, value) => props.updateAnalytics({ ...props.analytics, item: value }),
@@ -107,9 +124,14 @@ export const getAnalytics = initialValues => compose( // { certificates: 0,  }
       const { user, setData } = this.props
       const { productLines } = user
 
-      axios.post(`/manu${MANUFACTURER_CERTIFICATES_CREATED}`, productLines)
-      .then(res => setData('certificates', res.data))
-      .catch(console.log)
+      Promise.all([
+        MANUFACTURER_PRODUCTS_WITH,
+        MANUFACTURER_CERTIFICATES_CREATED,
+      ].map(route => axios.post(`/manu${route}`, productLines)))
+      .then((res) => {
+        const state = ['products', 'certificates']
+        res.forEach((arr, i) => { setData(state[i], res[i].data) })
+      })
     },
   }),
 )

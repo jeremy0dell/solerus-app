@@ -3,27 +3,19 @@ import { compose } from 'recompose'
 import { Link } from 'react-router-dom'
 
 import { getAnalytics } from '../../../util/analytics'
-import { getProducts } from '../../../util/getters'
 
 import TopBar from './TopBar'
 import Dropdowns from './Dropdowns'
-import Product from './Product'
+import Product from './Product.jsx' // eslint-disable-line
 
 import styles from '../../styles/AnalyticsStyles'
-
-// I need to get the associated Products
-
-/*  { <Switch>
-    <Route exact path={MANUFACTURER_ANALYTICS_PRODUCT} render={() => <Product user={user} />} />
-    <Route exact path={MANUFACTURER_ANALYTICS_ITEM} render={() => <Item user={user} />} />
-    </Switch> } */
 
 const Button = () =>
   <Link to="/manufacturer">
     <button style={styles.arrowButton}>←</button>
   </Link>
 
-const AnalyticsContainer = ({ user, analytics, products, setAnalyticsProduct, setAnalyticsItem }) =>
+const AnalyticsContainer = ({ user, analytics, setAnalyticsProduct, setAnalyticsItem }) =>
   <div>
     <Button />
     {analytics.certificates && <TopBar user={user} certificates={analytics.certificates} />}
@@ -33,30 +25,37 @@ const AnalyticsContainer = ({ user, analytics, products, setAnalyticsProduct, se
           <div style={{ paddingTop: '20px' }}>
           Product Line:
           </div>
-          <Dropdowns
-            products={products}
+          {analytics.products.length && <Dropdowns
+            analytics={analytics}
+            products={analytics.products}
+            product={analytics.product}
             setAnalyticsProduct={setAnalyticsProduct}
             setAnalyticsItem={setAnalyticsItem}
-            product={analytics.product}
-            item={analytics.item}
-          />
+            user={user}
+          />}
         </div>
         <div style={{ alignItems: 'left', marginLeft: '10%', width: '100%' }}>
-          {
-            analytics.product && <Product
-              key={analytics.product} // key FORCES A REMOUNT WHEN KEY CHANGES
-              user={user}             // THIS SHOULD BE A TEMPORARY HACK
-              product={analytics.product}
-            />
-          }
+          {analytics.product && analytics.assocUsers.length && <Product
+            key={analytics.product}
+            product={analytics.product}
+            item={analytics.item}
+            assocUsers={analytics.assocUsers}
+            assocItems={analytics.assocItems}
+            setAnalyticsItem={setAnalyticsItem}
+            user={user}
+          />}
         </div>
       </div>
     </div>
   </div>
 
 export default compose(
-  getAnalytics({ certificates: 0, product: null, item: null }),
-  getProducts,
+  getAnalytics({
+    products: [],
+    assocUsers: [],
+    assocItems: [],
+    product: null,
+    item: null,
+    certificates: 0,
+  }),
 )(AnalyticsContainer)
-
-// export default getAnalytics(AnalyticsContainer)

@@ -11,6 +11,7 @@ export const MANUFACTURER_TRANSFER = '/manufacturer/transfer'
 export const MANUFACTURER_CERTIFICATES_CREATED = '/manufacturer/certificates'
 export const MANUFACTURER_USERS_WITH = '/manufacturer/users-with'
 export const MANUFACTURER_ITEMS_WITH = '/manufacturer/items-with'
+export const MANUFACTURER_PRODUCTS_WITH = '/manufacturer/products-with'
 
 export const MANUFACTURER_LOGIN_ROUTE = '/manufacturer/login'
 export const MANUFACTURER_DASHBOARD_ROUTE = '/manufacturer/dashboard'
