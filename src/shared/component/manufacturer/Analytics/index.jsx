@@ -6,7 +6,7 @@ import { getAnalytics } from '../../../util/analytics'
 
 import TopBar from './TopBar'
 import Dropdowns from './Dropdowns'
-import Product from './Product.jsx' // eslint-disable-line
+import Product from './Product' // eslint-disable-line
 
 import styles from '../../styles/AnalyticsStyles'
 
