@@ -16,6 +16,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+
   /* position: relative; */
 }
 
@@ -46,16 +48,8 @@ src: url("InterUI/Inter-UI-Medium.woff") format("woff");
   width: 252px;
 }
 
-#imgRight {
-  margin-right: 20%;
-}
-
-#shield {
-  margin-right: 20%;
-}
-
-#imgLeft {
-  margin-left: 20%;
+.heroContainer {
+  margin: 120px 0px 0px 100px;
 }
 
 #heroText {
@@ -109,13 +103,13 @@ src: url("InterUI/Inter-UI-Medium.woff") format("woff");
 
 .bodyText {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 	padding: 25px 5%;
 }
 
 .bodyTextRight {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 	padding: 25px 5%;
   text-align: right;
 }
@@ -124,6 +118,10 @@ src: url("InterUI/Inter-UI-Medium.woff") format("woff");
 	font-family: Inter UI Bold;
 	font-size: x-large;
   line-height: 43px;
+}
+
+.landingParagraph {
+  width: 600px;
 }
 
 #header {
@@ -155,8 +153,71 @@ src: url("InterUI/Inter-UI-Medium.woff") format("woff");
 	padding-top: 6%;
 }
 
-
 #header {
 	font-family: Inter UI Bold;
 	font-size: x-large;
+}
+
+.menuButtons {
+  position: absolute;
+  top: 5%;
+  right: 3.5%;
+  display: flex;
+  flex-direction: row;
+}
+
+#form button {
+  margin-left: 400px;
+}
+
+@media only screen and (max-width: 620px) {
+
+  .bodyText {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bodyTextRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+  }
+
+  #heroText {
+  	font-family: Inter UI;
+  	font-size: 42px;
+  	z-index: 100;
+    /* position: relative; */
+    color: white;
+    font-weight: bold;
+    /* left: 25%;
+    top: 0%; */
+    margin-top: 15%;
+    width: 100%;
+    font-size: 32px;
+  }
+
+  .heroContainer {
+    margin: 0px 0px 0px 15px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  .landingParagraph {
+    width: 100%;
+  }
+
+  .menuButtons {
+    position: absolute;
+    top: 5%;
+    right: 3.5%;
+    display: flex;
+    flex-direction: column;
+  }
+
 }

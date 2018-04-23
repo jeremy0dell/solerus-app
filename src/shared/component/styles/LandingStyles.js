@@ -1,7 +1,4 @@
 const authButtons = {
-  position: 'absolute',
-  top: '5%',
-  right: '3.5%',
 }
 
 const authButton = {
@@ -16,4 +13,17 @@ const launchText = {
   color: '#CFCFCF',
 }
 
-export default { authButtons, authButton, launchText }
+const joinList = {
+  fontSize: 20,
+  color: 'black',
+  fontFamily: 'Inter UI',
+  fontWeight: 'bold',
+}
+
+const paragraph = {
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-around',
+}
+
+export default { authButtons, authButton, launchText, paragraph, joinList }
