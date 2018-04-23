@@ -16,8 +16,7 @@ const launchText = {
 const joinList = {
   fontSize: 20,
   color: 'black',
-  fontFamily: 'Inter UI',
-  fontWeight: 'bold',
+  fontFamily: 'Inter UI Bold',
 }
 
 const paragraph = {
