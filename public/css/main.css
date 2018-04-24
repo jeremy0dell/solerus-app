@@ -171,7 +171,7 @@ src: url("InterUI/Inter-UI-Medium.woff") format("woff");
   border-radius: 5px !important;
   height: 35px;
   width: 120px;
-  background-color: #7DD0FF;
+  background-color: #2D9CDB;
   color: white;
 }
 
@@ -226,7 +226,7 @@ src: url("InterUI/Inter-UI-Medium.woff") format("woff");
     top: 5%;
     right: 3.5%;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
 }
