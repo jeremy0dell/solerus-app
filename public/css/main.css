@@ -166,8 +166,17 @@ src: url("InterUI/Inter-UI-Medium.woff") format("woff");
   flex-direction: row;
 }
 
-#form button {
-  margin-left: 400px;
+#waiting button {
+  margin-left: 10px !important;
+  border-radius: 5px !important;
+  height: 35px;
+  width: 120px;
+  background-color: #7DD0FF;
+  color: white;
+}
+
+#waiting input {
+  width: 200px;
 }
 
 @media only screen and (max-width: 620px) {

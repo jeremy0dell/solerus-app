@@ -90,7 +90,7 @@ const LandingPage = ({ history }) =>
 
     </div>
     <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div id="waiting" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <p style={styles.joinList}>Join Waiting List</p>
         <MailchimpSubscribe url={url} />
         <p style={styles.launchText}>Expected to launch mid-2018</p>
