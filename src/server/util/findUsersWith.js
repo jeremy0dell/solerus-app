@@ -6,7 +6,6 @@ import User from '../model/user'
 require('babel-polyfill')
 
 const findUsersWith = async (product, user) => {
-  console.log('HIII', product, user)
   const { _id } = product
   const { ownership } = user
 

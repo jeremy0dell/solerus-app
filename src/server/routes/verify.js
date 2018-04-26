@@ -12,7 +12,6 @@ import {
 const router = express.Router()
 
 router.get(USERS_CONFIRMATION, (req, res, next) => {
-  console.log('got it!!')
   Token
     .findOne({ token: req.params.token })
     .then((token) => {

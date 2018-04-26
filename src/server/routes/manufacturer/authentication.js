@@ -40,10 +40,12 @@ passport.use('manufacturer', new LocalStrategy(
 ))
 
 passport.serializeUser((user, done) => {
+  console.log('RErealize user')
   done(null, user)
 })
 
 passport.deserializeUser((user, done) => {
+  console.log('DErealize user')
   done(null, user)
 })
 

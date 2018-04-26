@@ -38,6 +38,7 @@ router.post(MANUFACTURER_CREATE_CERTS, (req, res) => {
 
   res.send(req.body)
 })
+
 /* files looks like:
 [ { fieldname: 'file',
     originalname: 'picture.jpg',
@@ -48,6 +49,7 @@ router.post(MANUFACTURER_CREATE_CERTS, (req, res) => {
     path: 'public/uploads/2dd58ba07d2a7730ba3671fb02eef143',
     size: 55772 } ]
 */
+
 router.post(MANUFACTURER_UPLOAD, upload.any(), (req, res) => {
   const { name, retailer, description } = req.body
 

@@ -27,15 +27,12 @@ router.post(USERS_TRANSFER, (req, res, next) => {
 
   transferItem(item, transferer, transferee)
   .then((response) => {
-    console.log(response)
     res.send(response)
   })
   .catch(next)
 })
 
 router.get(USERS_SHOW, (req, res, next) => {
-  console.log(req.body, req.params)
-
   User
     .findOne({ _id: req.params.id })
     .then(data => res.json(data))
@@ -46,7 +43,8 @@ router.post(USERS_CREATE, (req, res, next) => {
   const { full_name, email, password } = req.body
 
   const user = new User({
-    full_name, email: validator.normalizeEmail(email), password: bcrypt.hashSync(password, 10) })
+    full_name, email: validator.normalizeEmail(email), password: bcrypt.hashSync(password, 10),
+  })
 
   user
     .save()

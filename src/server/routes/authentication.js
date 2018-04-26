@@ -25,15 +25,12 @@ passport.use('user', new LocalStrategy(
         return done(err)
       }
       if (!user) {
-        console.log('got !user') // eslint-disable-line
         return done(null, false)
       }
       if (!bcrypt.compareSync(password, user.password)) {
-        console.log('got !bcrypt.compareSync(user.password , password)') // eslint-disable-line
         return done(null, false)
       }
       if (!user.isVerified) {
-        console.log('got !user.isVerified') // eslint-disable-line
         return done(null, false)
       }
       return done(null, user)

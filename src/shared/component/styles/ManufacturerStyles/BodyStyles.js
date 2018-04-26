@@ -73,7 +73,7 @@ const transferForm = {
   backgroundImage: 'url("/static/images/transferCert.png")',
   height: '77px',
   backgroundSize: 'cover',
-  width: '25%',
+  width: '30%',
   justifyContent: 'center',
   margin: '0 auto',
   marginTop: '10px',
