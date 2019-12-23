@@ -8,7 +8,6 @@ import { MANUFACTURER_INDEX } from '../../../manufacturerRoutes'
 const HistoryItem = ({ item, withHistory }) =>
   <div>
     <b>Transfer</b>
-    {console.log('12345', item, withHistory)}
     {withHistory.recipient && <div>
       <div>From: {withHistory.transferer.name}</div>
       <div>To: {withHistory.recipient.full_name}</div>
