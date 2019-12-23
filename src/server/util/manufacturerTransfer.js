@@ -21,21 +21,18 @@ const transferItem = async (transferObj) => {
     Manufacturer.findOne({ email: user.email }),
     types[type].findOne({ email }),
   ])
-  // console.log(sender, receiver)
   // make sure that items exist in sender
   // if not, return error
   const foundItems = sender.ownership
   .filter(ownedItem => itemsObj[ownedItem.cora_id] !== undefined)
 
   if (items.length !== foundItems.length) {
-    // console.log(sender.ownership, itemsObj)
     throw new Error('User doesn\'t own correct items')
   }
 
   // get the items from the actual DB
 
   const orphanItems = remove(sender.ownership, itm => itemsObj[itm.cora_id] !== undefined)
-  // console.log('orphans are', orphanItems)
 
   const transfers = orphanItems.map(() => new Transfer({
     transferer: sender._id,
