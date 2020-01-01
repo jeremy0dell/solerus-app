@@ -27,15 +27,7 @@ export const getItems = compose(
 
       axios.post(`/manu${MANUFACTURER_ITEMS_WITH}`, { product })
       .then(res => setItems(res.data))
-      // .then(console.log)
       .catch(console.log)
-
-      // Promise.all(user.productLines.map(prod => axios.get(`/api${PRODUCT_INDEX}/${prod}`)))
-      // .then((res) => {
-      //   res.forEach((prod) => {
-      //     setProduct(prod.data)
-      //   })
-      // })
     },
   }),
 )
@@ -55,10 +47,6 @@ export const getHistoryForItem = compose(
 
       axios.get(`/api${ITEM_INDEX}/${item}`)
       .then(console.log)
-
-      // axios.post(`/manu${MANUFACTURER_USERS_WITH}`, { item })
-      // .then(res => res.data.forEach(user => setUsersData(user._id, user)))
-      // .catch(console.log)
     },
   }),
 )
