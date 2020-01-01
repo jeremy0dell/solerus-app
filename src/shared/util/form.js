@@ -16,27 +16,23 @@ export const formData = initialValues => compose(
   withState('form', 'updateState', initialValues),
   withHandlers({
     handleChange:
-    props =>
-    event =>
-    props.updateState({ ...props.form, [event.target.name]: event.target.value }),
+      props => event =>
+      props.updateState({ ...props.form, [event.target.name]: event.target.value }),
     handleProductDropdown:
-    props =>
-    (event, idx, value) =>
-    props.updateState({ ...props.form, product: value }),
+      props => (event, idx, value) =>
+      props.updateState({ ...props.form, product: value }),
     handleCheckboxEvent:
-    props =>
-    row =>
-    props.updateState({
-      ...props.form,
-      itemsSelected:
-      includes(props.form.itemsSelected, row) ? // Is the selected choice on state?
-      remove(props.form.itemsSelected, n => n !== row) :
-      [...props.form.itemsSelected, row], // If not, add it to the state
-    }),
+      props => row =>
+      props.updateState({
+        ...props.form,
+        itemsSelected:
+        includes(props.form.itemsSelected, row) ? // Is the selected choice on state?
+        remove(props.form.itemsSelected, n => n !== row) :
+        [...props.form.itemsSelected, row], // If not, add it to the state
+      }),
     handleUpload:
-    props =>
-    files =>
-    props.updateState({ ...props.form, file: files[0] }),
+      props => files =>
+      props.updateState({ ...props.form, file: files[0] }),
   }),
 )
 
