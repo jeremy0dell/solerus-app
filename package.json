@@ -25,7 +25,7 @@
     "seed-database": "babel-node seed.js"
   },
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.21.1",
     "babel-plugin-module-resolver": "^3.0.0",
     "babel-polyfill": "^6.23.0",
     "babel-preset-stage-0": "^6.24.1",
